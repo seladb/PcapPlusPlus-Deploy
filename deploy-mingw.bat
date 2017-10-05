@@ -1,4 +1,4 @@
-set /p LATEST_RELEASE=<latest_release.version
+set /p LATEST_RELEASE=<C:\projects\pcapplusplus-deploy\latest_release.version
 for /f %%i in ('g++ -dumpversion') do set COMPILER_VERSION=%%i
 set DIST_DIR_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%compiler%-gcc-%COMPILER_VERSION%
 
@@ -12,7 +12,7 @@ echo WINPCAP_HOME := Drive:/WpdPack/folder>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
 more +8 %DIST_DIR_NAME%\mk\temp.mk>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
 del %DIST_DIR_NAME%\mk\temp.mk
 
-copy README.release.win.mingw %DIST_DIR_NAME%\README.release
+copy C:\projects\pcapplusplus-deploy\README.release.win.mingw %DIST_DIR_NAME%\README.release
 
 mkdir %DIST_DIR_NAME%\example-app
 xcopy Examples\Tutorials\Tutorial-HelloWorld %DIST_DIR_NAME%\example-app /E
