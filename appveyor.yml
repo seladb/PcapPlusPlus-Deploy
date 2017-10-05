@@ -39,5 +39,5 @@ test_script:
 - Bin\Pcap++Test.exe -n
 
 deploy_script:
-- if "%compiler%"=="mingw32" deploy-mingw.bat
-- if "%compiler%"=="mingw-w64" deploy-mingw.bat
+- if "%compiler%"=="mingw32" C:\projects\pcapplusplus-deploy\deploy-mingw.bat
+- if "%compiler%"=="mingw-w64" C:\projects\pcapplusplus-deploy\deploy-mingw.bat
