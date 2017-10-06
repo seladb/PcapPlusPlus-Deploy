@@ -22,7 +22,7 @@ before_build:
 - git clone https://github.com/seladb/PcapPlusPlus.git
 - cd C:\projects\PcapPlusPlus
 - if "%compiler%"=="mingw32" configure-windows-mingw.bat mingw32 -m C:\MinGW -w C:\WpdPack
-- if "%compiler%"=="mingw-w64" configure-windows-mingw.bat mingw-w64 -m C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32 -w C:\WpdPack -s C:\msys64
+- if "%compiler%"=="mingw-w64" configure-windows-mingw.bat mingw-w64 -m C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32 -w C:\WpdPack -s C:\msys64
 - if "%compiler%"=="vs2015" configure-windows-visual-studio.bat -w C:\WpdPack -p C:\pthreads
 
 build_script:
