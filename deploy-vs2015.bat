@@ -11,7 +11,10 @@ mkdir %DIST_DIR_NAME%\ExampleProject
 xcopy Examples\Tutorials\Tutorial-HelloWorld\main.cpp %DIST_DIR_NAME%\ExampleProject /Y
 xcopy Examples\Tutorials\Tutorial-HelloWorld\1_packet.pcap %DIST_DIR_NAME%\ExampleProject /Y
 xcopy C:\projects\pcapplusplus-deploy\PcapPlusPlusPropertySheet.props %DIST_DIR_NAME%\ExampleProject /Y
-:: xcopy C:\projects\pcapplusplus-deploy\ExampleProject.vcxproj %DIST_DIR_NAME%\ExampleProject /Y
+copy C:\projects\pcapplusplus-deploy\README.md.ExampleProject %DIST_DIR_NAME%\ExampleProject\README.md
+xcopy C:\projects\pcapplusplus-deploy\ExampleProject.sln %DIST_DIR_NAME%\ExampleProject /Y
+xcopy C:\projects\pcapplusplus-deploy\ExampleProject.vcxproj %DIST_DIR_NAME%\ExampleProject /Y
+xcopy C:\projects\pcapplusplus-deploy\ExampleProject.vcxproj.filters %DIST_DIR_NAME%\ExampleProject /Y
 
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\
 
