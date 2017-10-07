@@ -4,6 +4,9 @@ environment:
   matrix:
     - compiler: mingw32
     - compiler: mingw-w64
+    - compiler: vs2015
+      platform: x86
+      config: Debug
 
 install:
 - git submodule update --init --recursive
@@ -30,7 +33,6 @@ build_script:
 - if "%compiler%"=="mingw-w64" mingw32-make all
 - if "%compiler%"=="vs2015" powershell -command "msbuild mk\vs2015\PcapPlusPlus.sln /p:Configuration=%config% /p:Platform=%platform%"
 - if "%compiler%"=="vs2015" powershell -command "msbuild mk\vs2015\PcapPlusPlus-Examples.sln /p:Configuration=%config% /p:Platform=%platform%"
-- if "%compiler%"=="vs2015" powershell -command "msbuild mk\vs2015\Tutorials.sln /p:Configuration=%config% /p:Platform=%platform%"
 
 test_script:
 - cd C:\projects\PcapPlusPlus\Tests\Packet++Test
@@ -42,3 +44,4 @@ deploy_script:
 - cd C:\projects\PcapPlusPlus
 - if "%compiler%"=="mingw32" C:\projects\pcapplusplus-deploy\deploy-mingw.bat
 - if "%compiler%"=="mingw-w64" C:\projects\pcapplusplus-deploy\deploy-mingw.bat
+- if "%compiler%"=="vs2015" C:\projects\pcapplusplus-deploy\deploy-vs2015.bat
