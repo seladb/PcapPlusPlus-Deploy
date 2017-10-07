@@ -15,10 +15,10 @@ del %DIST_DIR_NAME%\mk\temp.mk
 copy C:\projects\pcapplusplus-deploy\README.release.win.mingw %DIST_DIR_NAME%\README.release
 
 mkdir %DIST_DIR_NAME%\example-app
-xcopy Examples\Tutorials\Tutorial-HelloWorld %DIST_DIR_NAME%\example-app /E
-del %DIST_DIR_NAME%\example-app\Makefile.non_windows
-move %DIST_DIR_NAME%\example-app\Makefile.windows %DIST_DIR_NAME%\example-app\Makefile
-powershell -Command "(gc %DIST_DIR_NAME%\example-app\Makefile -Encoding Ascii) -replace '../../../Dist/', '' | Out-File %DIST_DIR_NAME%\example-app\Makefile -Encoding Ascii"
+xcopy Examples\Tutorials\Tutorial-HelloWorld\main.cpp %DIST_DIR_NAME%\example-app /Y
+xcopy Examples\Tutorials\Tutorial-HelloWorld\1_packet.pcap %DIST_DIR_NAME%\example-app /Y
+xcopy C:\projects\pcapplusplus-deploy\Makefile %DIST_DIR_NAME%\example-app /Y
+copy C:\projects\pcapplusplus-deploy\README.md.example-app %DIST_DIR_NAME%\example-app\README.md
 
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\
 
