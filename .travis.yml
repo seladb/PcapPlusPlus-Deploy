@@ -32,3 +32,6 @@ script:
        docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test";
        docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus/Tests/Pcap++Test && Bin/Pcap++Test -n -k 0";
     fi
+
+after_success:
+  - ../PcapPlusPlus-Deploy/linux-mac/deploy-linux-mac.sh
