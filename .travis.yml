@@ -10,13 +10,13 @@ matrix:
         - DOCKER_IMAGE=ubuntu1404
 
 before_install:
+  - cd .. && git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
        docker pull seladb/$DOCKER_IMAGE:latest;
        docker run -itd --name $DOCKER_IMAGE -v $(pwd):/PcapPlusPlus seladb/$DOCKER_IMAGE;
     fi
 
 before_script:
-  - cd .. && git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./configure-mac_os_x.sh; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && ./configure-linux.sh --default"; fi
   - if [[ ! -z $DPDK_DIR ]]; then docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && ./configure-linux.sh --dpdk --dpdk-home /$DPDK_DIR"; fi
