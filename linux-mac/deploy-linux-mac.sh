@@ -12,16 +12,16 @@ mv Dist $DIST_DIR_NAME
 NEW_FIRST_LINE="PCAPPLUSPLUS_HOME := /your/PcapPlusPlus/folder"
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then SED_PARAMS="''"; fi
 
-#sed -i $SED_PARAMS "1s|.*|$NEW_FIRST_LINE|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk
+sudo sed -i $SED_PARAMS "1s|.*|$NEW_FIRST_LINE|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk
 
-#sed -i $SED_PARAMS "s|"$(PCAPPLUSPLUS_HOME)/Dist"|"$(PCAPPLUSPLUS_HOME)"|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk
+sudo sed -i $SED_PARAMS "s|"$(PCAPPLUSPLUS_HOME)/Dist"|"$(PCAPPLUSPLUS_HOME)"|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk
 
-cp ../PcapPlusPlus-Deploy/READMEs/README.release.linux_mac $DIST_DIR_NAME/README.release
+sudo cp ../PcapPlusPlus-Deploy/READMEs/README.release.linux_mac $DIST_DIR_NAME/README.release
 
-mkdir $DIST_DIR_NAME/example-app
-cp Examples/Tutorials/Tutorial-HelloWorld/main.cpp $DIST_DIR_NAME/example-app
-cp Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap $DIST_DIR_NAME/example-app
-cp ../PcapPlusPlus-Deploy/misc/Makefile $DIST_DIR_NAME/example-app
+sudo mkdir $DIST_DIR_NAME/example-app
+sudo cp Examples/Tutorials/Tutorial-HelloWorld/main.cpp $DIST_DIR_NAME/example-app
+sudo cp Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap $DIST_DIR_NAME/example-app
+sudo cp ../PcapPlusPlus-Deploy/misc/Makefile $DIST_DIR_NAME/example-app
 
-tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
+sudo tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
 curl --upload-file ./$DIST_DIR_NAME.tar.gz https://transfer.sh/$DIST_DIR_NAME.tar.gz
