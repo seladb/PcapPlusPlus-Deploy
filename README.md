@@ -1,5 +1,6 @@
 # PcapPlusPlus-Deploy
 
+[![Build Status](https://travis-ci.org/seladb/PcapPlusPlus-Deploy.svg?branch=master)](https://travis-ci.org/seladb/PcapPlusPlus-Deploy)
 [![Build status](https://ci.appveyor.com/api/projects/status/i6pkdeagbk5plpd7?svg=true)](https://ci.appveyor.com/project/seladb/pcapplusplus-deploy)
 
 PcapPlusPlus deployment project. 
