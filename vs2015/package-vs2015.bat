@@ -1,5 +1,5 @@
 set BASE_DIR=%1
-set /p LATEST_RELEASE=<latest_release.version
+set /p LATEST_RELEASE=<..\latest_release.version
 
 set X86_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-vs2015-Debug-x86
 set X64_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-vs2015-Debug-x64

@@ -1,4 +1,4 @@
-set /p LATEST_RELEASE=<C:\projects\pcapplusplus-deploy\latest_release.version
+set /p LATEST_RELEASE=<C:\projects\pcapplusplus-deploy\misc\latest_release.version
 for /f %%i in ('g++ -dumpversion') do set COMPILER_VERSION=%%i
 set DIST_DIR_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%compiler%-gcc-%COMPILER_VERSION%
 
