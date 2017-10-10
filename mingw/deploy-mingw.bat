@@ -12,13 +12,13 @@ echo WINPCAP_HOME := Drive:/WpdPack/folder>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
 more +8 %DIST_DIR_NAME%\mk\temp.mk>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
 del %DIST_DIR_NAME%\mk\temp.mk
 
-copy C:\projects\pcapplusplus-deploy\README.release.win.mingw %DIST_DIR_NAME%\README.release
+copy C:\projects\pcapplusplus-deploy\READMEs\README.release.win.mingw %DIST_DIR_NAME%\README.release
 
 mkdir %DIST_DIR_NAME%\example-app
 xcopy Examples\Tutorials\Tutorial-HelloWorld\main.cpp %DIST_DIR_NAME%\example-app /Y
 xcopy Examples\Tutorials\Tutorial-HelloWorld\1_packet.pcap %DIST_DIR_NAME%\example-app /Y
-xcopy C:\projects\pcapplusplus-deploy\Makefile %DIST_DIR_NAME%\example-app /Y
-copy C:\projects\pcapplusplus-deploy\README.md.example-app %DIST_DIR_NAME%\example-app\README.md
+xcopy C:\projects\pcapplusplus-deploy\misc\Makefile %DIST_DIR_NAME%\example-app /Y
+copy C:\projects\pcapplusplus-deploy\READMEs\README.md.example-app %DIST_DIR_NAME%\example-app\README.md
 
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\
 
