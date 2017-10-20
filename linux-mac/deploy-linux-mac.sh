@@ -10,9 +10,9 @@ mv Dist $DIST_DIR_NAME
 
 NEW_FIRST_LINE="PCAPPLUSPLUS_HOME := /your/PcapPlusPlus/folder"
 
-sudo sed -i.bak $SED_PARAMS "1s|.*|$NEW_FIRST_LINE|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sudo sed -i.bak $SED_PARAMS "1s|.*|$NEW_FIRST_LINE|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && sudo rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
 
-sudo sed -i.bak $SED_PARAMS "s|"$(PCAPPLUSPLUS_HOME)/Dist"|"$(PCAPPLUSPLUS_HOME)"|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sudo sed -i.bak $SED_PARAMS "s|"$(PCAPPLUSPLUS_HOME)/Dist"|"$(PCAPPLUSPLUS_HOME)"|" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && sudo rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
 
 sudo cp ../PcapPlusPlus-Deploy/READMEs/README.release.linux_mac $DIST_DIR_NAME/README.release
 
