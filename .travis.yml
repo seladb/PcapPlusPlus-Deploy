@@ -9,6 +9,9 @@ matrix:
       env:
         - DOCKER_IMAGE=ubuntu1404
         - OS_VER=ubuntu-14.04
+    - os: osx
+      compiler: clang
+      osx_image: xcode6.4
 
 before_install:
   - cd .. && git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
