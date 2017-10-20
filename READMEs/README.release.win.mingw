@@ -39,7 +39,6 @@ In order to compile your application with these binaries you need to:
      - Set "WINPCAP_HOME" to the folder where WinPcap Developer's Pack is installed
  - Include mk\PcapPlusPlus.mk in your Makefile and add PcapPlusPlus includes, libs, etc. to your Makefile 
      - You can follow the example under example-app\
-     - Or follow "Writing Applications With PcapPlusPlus" section in http://seladb.github.io/PcapPlusPlus-Doc/examples.html
 
 
 Release notes (changes from v16.09):

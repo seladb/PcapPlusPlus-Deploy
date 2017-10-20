@@ -17,7 +17,7 @@ copy C:\projects\pcapplusplus-deploy\READMEs\README.release.win.mingw %DIST_DIR_
 mkdir %DIST_DIR_NAME%\example-app
 xcopy Examples\Tutorials\Tutorial-HelloWorld\main.cpp %DIST_DIR_NAME%\example-app /Y
 xcopy Examples\Tutorials\Tutorial-HelloWorld\1_packet.pcap %DIST_DIR_NAME%\example-app /Y
-xcopy C:\projects\pcapplusplus-deploy\misc\Makefile %DIST_DIR_NAME%\example-app /Y
+copy C:\projects\pcapplusplus-deploy\mingw\Makefile.windows %DIST_DIR_NAME%\example-app\Makefile
 copy C:\projects\pcapplusplus-deploy\READMEs\README.md.example-app %DIST_DIR_NAME%\example-app\README.md
 
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\

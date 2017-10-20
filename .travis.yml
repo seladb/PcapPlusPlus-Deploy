@@ -8,6 +8,7 @@ matrix:
     - os: linux
       env:
         - DOCKER_IMAGE=ubuntu1404
+        - OS_VER=ubuntu-14.04
 
 before_install:
   - cd .. && git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
@@ -27,10 +28,12 @@ script:
        make all;
        cd Tests/Packet++Test && Bin/Packet++Test;
        cd ../Pcap++Test && sudo Bin/Pcap++Test -n;
+       cd ../../ && g++ -dumpversion > gcc.version;
     else
        docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && make all";
        docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test";
        docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus/Tests/Pcap++Test && Bin/Pcap++Test -n -k 0";
+       docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && g++ -dumpversion > gcc.version";
     fi
 
 after_success:
