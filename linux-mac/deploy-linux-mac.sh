@@ -4,7 +4,7 @@ set -e # Exit with nonzero exit code if anything fails
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then XCODE_VER=$($(xcode-select -print-path)/usr/bin/xcodebuild -version | head -n1 | awk '{print $2}') ; fi
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then OS_VER=mac-os-$(sw_vers -productVersion)-xcode-$XCODE_VER; fi
 
-DIST_DIR_NAME=pcapplusplus-$(cat Deploy/latest_release.version)-$OS_VER-gcc-$(cat gcc.version)
+DIST_DIR_NAME=pcapplusplus-$(cat ../PcapPlusPlus-Deploy/misc/latest_release.version)-$OS_VER-gcc-$(cat gcc.version)
 
 mv Dist $DIST_DIR_NAME
 

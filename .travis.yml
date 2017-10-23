@@ -11,6 +11,10 @@ matrix:
         - OS_VER=ubuntu-14.04
     - os: linux
       env:
+        - DOCKER_IMAGE=ubuntu1404
+        - DEPLOY_SOURCE=1
+    - os: linux
+      env:
         - DOCKER_IMAGE=ubuntu1604
         - OS_VER=ubuntu-16.04
     - os: linux
@@ -51,10 +55,9 @@ before_install:
     fi
 
 before_script:
+  - if [[ ! -z $DEPLOY_SOURCE ]]; then ../PcapPlusPlus-Deploy/source-linux/deploy-source.sh; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./configure-mac_os_x.sh; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && ./configure-linux.sh --default"; fi
-  - if [[ ! -z $DPDK_DIR ]]; then docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && ./configure-linux.sh --dpdk --dpdk-home /$DPDK_DIR"; fi
-  - if [[ ! -z $PF_RING ]]; then docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && ./configure-linux.sh --pf-ring --pf-ring-home /PF_RING"; fi
   
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
