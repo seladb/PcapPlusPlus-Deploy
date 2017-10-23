@@ -9,8 +9,8 @@ DIST_DIR_NAME=pcapplusplus-$(cat ../PcapPlusPlus-Deploy/misc/latest_release.vers
 mv Dist $DIST_DIR_NAME
 
 sudo cp ../PcapPlusPlus-Deploy/READMEs/README.release.header $DIST_DIR_NAME/README.release
-sudo cat ../PcapPlusPlus-Deploy/READMEs/README.release.linux_mac >> $DIST_DIR_NAME/README.release
-sudo cat ../PcapPlusPlus-Deploy/READMEs/release_notes.txt >> $DIST_DIR_NAME/README.release
+sudo tee -a $DIST_DIR_NAME/README.release < ../PcapPlusPlus-Deploy/READMEs/README.release.linux_mac
+sudo tee -a $DIST_DIR_NAME/README.release < ../PcapPlusPlus-Deploy/READMEs/release_notes.txt
 
 sudo mkdir $DIST_DIR_NAME/example-app
 sudo cp Examples/Tutorials/Tutorial-HelloWorld/main.cpp $DIST_DIR_NAME/example-app
