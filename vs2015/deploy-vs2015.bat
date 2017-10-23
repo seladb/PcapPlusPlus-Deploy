@@ -5,7 +5,9 @@ set DIST_DIR_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%compiler%-%config%-%pla
 
 move Dist %DIST_DIR_NAME%
 
-copy C:\projects\pcapplusplus-deploy\READMEs\README.release.win.vs2015 %DIST_DIR_NAME%\README.release
+copy C:\projects\pcapplusplus-deploy\READMEs\README.release.header %DIST_DIR_NAME%\README.release
+type C:\projects\pcapplusplus-deploy\READMEs\README.release.win.vs2015 >> %DIST_DIR_NAME%\README.release
+type C:\projects\pcapplusplus-deploy\READMEs\release_notes.txt >> %DIST_DIR_NAME%\README.release
 
 mkdir %DIST_DIR_NAME%\ExampleProject
 xcopy Examples\Tutorials\Tutorial-HelloWorld\main.cpp %DIST_DIR_NAME%\ExampleProject /Y
