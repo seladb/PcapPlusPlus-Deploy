@@ -5,7 +5,7 @@ DIST_DIR_NAME=pcapplusplus-$(cat ../PcapPlusPlus-Deploy/misc/latest_release.vers
 
 sudo mkdir -p $DIST_DIR_NAME/PcapPlusPlus
 
-sudo rsync -av --exclude='.git' . $DIST_DIR_NAME/PcapPlusPlus
+sudo rsync -av --exclude='.git' --exclude="$DIST_DIR_NAME" . $DIST_DIR_NAME/PcapPlusPlus
 sudo cp ../PcapPlusPlus-Deploy/source-linux/install* $DIST_DIR_NAME/
 sudo cp ../PcapPlusPlus-Deploy/READMEs/README.release.source $DIST_DIR_NAME/README.release
 
