@@ -1,30 +1,29 @@
-Release notes (changes from v16.09):
+Release notes (changes from v17.02):
 ------------------------------------
 
- - Microsoft Visual Studio 2015 support - x86 (32bit) & x64 (64bit) + Debug & Release configurations
- - MinGW-w64 support (32bit configuration only)
- - Native PcapNG format support (reading and writing files)
+ - Added TCP reassembly logic and module
+ - Set the Unilicense license for PcapPlusPlus
+ - Added support for DPDK 16.11 and 17.02 (replacing old 2.1 version)
+ - Added 5 tutorials for getting to know PcapPlusPlus
+ - Choose whether to parse a packet fully or up to a certain layer
+ - Added installation script ('make install') on Linux and MacOS
  - New protocols:
-     - DHCP
-     - Null/Loopback
-     - IGMP
+   - SIP
+   - SDP
+   - IPv4 options
+   - Raw IP link layer type
+   - VXLAN
  - New and updated utilities:
-     - Added ICMP file transfer utility
-     - PcapSplitter
-         - Added the option to split only packets matching to a certain BPF filter
-         - Support splitting of large files (more than 2GB)
-     - PcapPrinter:
-         - Added support for printing PcapNG files
-         - Added printing of packet comments (supported only in PcapNG files)
-         - Added printing of file info
-     - PcapSearch:
-         - Added searching inside PcapNG files
-     - HttpAnalyzer:
-         - Added analyzing of HTTP packets inside PcapNG files
-     - SSLAnalyzer:
-         - Added analyzing of SSL/TLS packets inside PcapNG files
- - Added blocking mode capturing in PcapLiveDevice
- - Match packets with BPF filter without device instance
- - Simplified build process (removed dependency in platform.mk)
- - Added clear filter capability to all devices
+   - TCP reassembly utility
+   - PcapSplitter now includes split criteria in split file names (IP/port/matched-BPF) 
+   - PcapSplitter now supports splitting pcap files with link type other than Ethernet
+   - Added version info to all utilities
+ - Added version and Git info API
+ - Added support for libpcap immediate mode where supported (libpcap ver>=1.5)
+ - pthreads on MinGW are now linked statically
+ - Clean-ups:
+   - Moved debug-new to 3rd-party
+   - Cleaner makefiles and makefile output
+   - Removed compilation warnings
+   - Removed unnecessary files and reduced repo size
  - Many bugfixes
