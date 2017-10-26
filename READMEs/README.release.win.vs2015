@@ -40,9 +40,10 @@ In order to compile your application with these binaries you need to:
  - You need to add to your project all of the include and binary paths required for PcapPlusPlus. The best option is to take a look at the configuration of the ExampleProject (under ExampleProject\ folder). Another option
    is to use the ExampleProject, delete all the code from it and start writing your own code
  - Before using the ExampleProject solution please make sure you update the PcapPlusPlusPropertySheet.props file (inside ExampleProject\ folder) with the following:
-     - Set the value of the "PcapPlusPlusHome" XML node to the folder where PcapPlusPlus binaries are located
-	 - Set the value of the "WinPcapHome" XML node to the folder where WinPcap Developer's Pack is installed
-	 - Set the value of the "PThreadWin32Home" node to the folder where pthread-win32 is installed
- - Now you can load the solution and build it
+     - Set the value of the "PcapPlusPlusHome" XML node to the folder where PcapPlusPlus binaries package is located (the one you downloaded)
+	 - Set the value of the "WinPcapHome" XML node to the folder where WinPcap Developer's Pack is located
+	 - Set the value of the "PThreadWin32Home" node to the folder where pthread-win32 is located
+ - Now you can load the solution and build it. You can switch between Debug/Release and x86/x64 configurations
+ - Build result will be in ExampleProject\Debug or ExampleProject\Release (according to chosen configuration)
 
 
