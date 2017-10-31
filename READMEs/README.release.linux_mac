@@ -37,7 +37,7 @@ In order to compile your application with these binaries you need to:
 
  - Make sure you have libpcap developer pack installed (in Ubuntu: install it using apt-get: "sudo apt-get install libpcap-dev"; in Mac OS X it should come with Xcode)
  - Make sure the binaries matches your OS (for example: pcapplusplus-17.11-ubuntu-16.04-x86-64-gcc-4.8.tar.gz pack probably won't necessarily well in Ubuntu 14.04)
- - Make sure your gcc/g++ version matches the compiled binaries version (for example: pcapplusplus-17.02-ubuntu-16.04-x86-64-gcc-4.8.tar.gz pack probably won't work well with gcc 4.9)
+ - Make sure your gcc/g++ version matches the compiled binaries version (for example: pcapplusplus-17.11-ubuntu-16.04-x86-64-gcc-4.8.tar.gz pack probably won't work well with gcc 4.9)
  - Make sure PcapPlusPlus is installed (see Installation section above)
  - Include /usr/local/etc/PcapPlusPlus.mk in your Makefile and add PcapPlusPlus includes and libs in relevant place in your Makefile 
      - You can follow the example under example-app/
