@@ -1,12 +1,11 @@
 Release notes (changes from v17.02):
 ------------------------------------
 
- - Added TCP reassembly logic and module
- - Set the Unilicense license for PcapPlusPlus
+ - Added TCP reassembly module
+ - Set Unilicense as PcapPlusPlus license
  - Added support for DPDK 16.11 and 17.02 (replacing old 2.1 version)
- - Added 5 tutorials for getting to know PcapPlusPlus
- - Choose whether to parse a packet fully or up to a certain layer
- - Added installation script ('make install') on Linux and MacOS
+ - Added 5 tutorials for getting started with PcapPlusPlus: http://seladb.github.io/PcapPlusPlus-Doc/tutorials.html
+ - Added installation target ('make install') on Linux and MacOS
  - New protocols:
    - SIP
    - SDP
@@ -14,16 +13,18 @@ Release notes (changes from v17.02):
    - Raw IP link layer type
    - VXLAN
  - New and updated utilities:
-   - TCP reassembly utility
-   - PcapSplitter now includes split criteria in split file names (IP/port/matched-BPF) 
+   - New TCP reassembly utility
+   - PcapSplitter now includes split criteria in split file names (for example: when splitting by client IP output files will look like: filename-client-ip-x.x.x.x.pcap). This applies also to splitting by server IP, server port and BPF filter
    - PcapSplitter now supports splitting pcap files with link type other than Ethernet
-   - Added version info to all utilities
- - Added version and Git info API
- - Added support for libpcap immediate mode where supported (libpcap ver>=1.5)
- - pthreads on MinGW are now linked statically
+   - Added version information for all utilities
+ - Choose whether to parse a packet fully or up to a certain layer
+ - Added support for libpcap immediate mode where supported (libpcap ver>=1.5) - thanks to @f-squirrel !
+ - pthreads on MinGW are now linked statically (upgraded pthreads to 2.10)
+ - Added PcapPlusPlus version and Git info API
  - Clean-ups:
-   - Moved debug-new to 3rd-party
-   - Cleaner makefiles and makefile output
-   - Removed compilation warnings
    - Removed unnecessary files and reduced repo size
+   - Removed compilation warnings
+   - Cleaner makefiles and makefile output
+   - Moved debug-new to 3rd-party
  - Many bugfixes
+
