@@ -14,7 +14,7 @@ Release notes (changes from v17.02):
    - VXLAN
  - New and updated utilities:
    - New TCP reassembly utility
-   - PcapSplitter now includes split criteria in split file names (for example: when splitting by client IP output files will look like: filename-client-ip-x.x.x.x.pcap). This applies also to splitting by server IP, server port and BPF filter
+   - PcapSplitter now includes split criteria in split file names (for example: when splitting by client IP output files will look like: filename-client-ip-x.x.x.x.pcap). This applies also to splitting by server IP, server port and BPF filter (thanks to @bpagon13 !)
    - PcapSplitter now supports splitting pcap files with link type other than Ethernet
    - Added version information for all utilities
  - Choose whether to parse a packet fully or up to a certain layer
