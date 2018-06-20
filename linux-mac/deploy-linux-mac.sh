@@ -16,10 +16,10 @@ sudo mkdir $DIST_DIR_NAME/example-app
 sudo cp Examples/Tutorials/Tutorial-HelloWorld/main.cpp $DIST_DIR_NAME/example-app
 sudo cp Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap $DIST_DIR_NAME/example-app
 sudo cp ../PcapPlusPlus-Deploy/linux-mac/Makefile.non_windows $DIST_DIR_NAME/example-app/Makefile
-sudo printf "\necho Installation complete!" >> mk/install.sh
-sudo printf "\necho Uninstallation complete!" >> mk/uninstall.sh
 sudo cp mk/install.sh $DIST_DIR_NAME/
 sudo cp mk/uninstall.sh $DIST_DIR_NAME/
+printf "\necho Installation complete! " | sudo tee -a $DIST_DIR_NAME/install.sh
+printf "\necho Uninstallation complete! " | sudo tee -a $DIST_DIR_NAME/uninstall.sh
 
 sudo tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
 curl --upload-file ./$DIST_DIR_NAME.tar.gz https://transfer.sh/$DIST_DIR_NAME.tar.gz
