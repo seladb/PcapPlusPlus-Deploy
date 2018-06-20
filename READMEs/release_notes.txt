@@ -1,30 +1,26 @@
-Release notes (changes from v17.02):
+Release notes (changes from v17.11):
 ------------------------------------
 
- - Added TCP reassembly module
- - Set Unilicense as PcapPlusPlus license
- - Added support for DPDK 16.11 and 17.02 (replacing old 2.1 version)
- - Added 5 tutorials for getting started with PcapPlusPlus: http://seladb.github.io/PcapPlusPlus-Doc/tutorials.html
- - Added installation target ('make install') on Linux and MacOS
+ - Massive DPDK enhancements:
+   - Major performance improvements
+   - Fixed some mbuf leakages
+   - DPDK 17.11 and 18.02 support (thanks @luigino !)
+   - Re-designed some of DpdkDevice APIs to make them cleaner, faster and easier to use
+   - Expose DPDK-specific stats
+   - RSS (Receive Side Scaling) support
+   - DPDK TX buffers support
+   - Enable DPDK master core configuration
+ - Added IP reassembly module (a.k.a IP de-fragmenetation). Supports both IPv4 and IPv6
+ - Added IPv6 support for TCP reassembly
+ - Install to custom directory on Linux and MacOS
+ - Performance improvement in packet parsing
+ - Fixed compatibility issues with C++17 (thanks @echo-Mike !)
+ - Read multiple packets from pcap/pcapng files
  - New protocols:
-   - SIP
-   - SDP
-   - IPv4 options
-   - Raw IP link layer type
-   - VXLAN
+   - Packet trailer (a.k.a footer or padding)
+   - IPv6 extensions
  - New and updated utilities:
-   - New TCP reassembly utility
-   - PcapSplitter now includes split criteria in split file names (for example: when splitting by client IP output files will look like: filename-client-ip-x.x.x.x.pcap). This applies also to splitting by server IP, server port and BPF filter (thanks to @bpagon13 !)
-   - PcapSplitter now supports splitting pcap files with link type other than Ethernet
-   - Added version information for all utilities
- - Choose whether to parse a packet fully or up to a certain layer
- - Added support for libpcap immediate mode where supported (libpcap ver>=1.5) - thanks to @f-squirrel !
- - pthreads on MinGW are now linked statically (upgraded pthreads to 2.10)
- - Added PcapPlusPlus version and Git info API
- - Clean-ups:
-   - Removed unnecessary files and reduced repo size
-   - Removed compilation warnings
-   - Cleaner makefiles and makefile output
-   - Moved debug-new to 3rd-party
+   - New IPFragUtil for splitting packets into IP fragments
+   - New IPDefragUtil for reassembling IP fragments into packets
+   - PcapSplitter now supports round-robin splitting
  - Many bugfixes
-
