@@ -19,21 +19,21 @@ Installation:
 
 The following installation scripts configure, compile and install PcapPlusPlus
 
- - For installing the package without DPDK or PF_RING: ./install.sh
- - For installing the package with DPDK:               ./install-with-dpdk.sh <DPDK_HOME>
- - For installing the package with PF_RING:            ./install-with-pfring.sh <PF_RING_HOME>
+ - For installing the package without DPDK or PF_RING: `./install.sh`
+ - For installing the package with DPDK:               `./install-with-dpdk.sh <DPDK_HOME>`
+ - For installing the package with PF_RING:            `./install-with-pfring.sh <PF_RING_HOME>`
 
 Alternatively you can build and install PcapPlusPlus yourself, by entering PcapPlusPlus directory and:
- - Run the relevant configuration scripts (as instructed here: http://seladb.github.io/PcapPlusPlus-Doc/download.html
+ - Run the relevant configuration scripts (as instructed here: http://seladb.github.io/PcapPlusPlus-Doc/download.html)
  - Run `make`
  - Run `sudo make install`
 
 After installation you can find PcapPlusPlus libraries in /usr/local/lib, 
-PcapPlusPlus examples in /usr/local/bin,
-header files in /usr/local/include/pcapplusplus,
-and a template makefile in /usr/local/etc.
+PcapPlusPlus examples in `/usr/local/bin`,
+header files in `/usr/local/include/pcapplusplus`,
+and a template makefile in `/usr/local/etc`.
 
-All of these files also reside in PcapPlusPlus/Dist folder
+All of these files also reside in `PcapPlusPlus/Dist` folder
 
 For installation with DPDK or PF_RING please follow the instructions in PcapPlusPlus web-site:
 http://seladb.github.io/PcapPlusPlus-Doc/dpdk-pf_ring.html
@@ -42,10 +42,10 @@ http://seladb.github.io/PcapPlusPlus-Doc/dpdk-pf_ring.html
 Running PcapPlusPlus examples:
 ------------------------------
 
- - All examples are in /usr/local/bin and also in PcapPlusPlus/Dist/examples
+ - All examples are in `/usr/local/bin` and also in `PcapPlusPlus/Dist/examples`
  - Make sure you have libpcap installed (should come built-in with most Linux and Mac OS X distributions)
  - In Linux you may need to run the executables as sudo
- - When installing the package with DPDK, before running the DPDK example please run PcapPlusPlus/setup-dpdk.sh
+ - When installing the package with DPDK, before running the DPDK example please run `PcapPlusPlus/setup-dpdk.sh`
 
 
 In order to compile your application with these binaries you need to:
@@ -53,8 +53,8 @@ In order to compile your application with these binaries you need to:
 
  - Make sure you have libpcap developer pack installed (in Ubuntu: install it using apt-get: "sudo apt-get install libpcap-dev"; in Mac OS X it should come with Xcode)
  - Make sure PcapPlusPlus is installed (see Installation section above)
- - Include /usr/local/etc/PcapPlusPlus.mk in your Makefile and add PcapPlusPlus includes, libs, etc. to your Makefile 
-     - You can follow the example under example-app/
+ - Include `/usr/local/etc/PcapPlusPlus.mk` in your Makefile and add PcapPlusPlus includes, libs, etc. to your Makefile 
+     - You can follow the example under `example-app/`
 
 
 
