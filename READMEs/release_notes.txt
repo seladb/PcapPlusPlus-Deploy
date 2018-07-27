@@ -16,6 +16,7 @@ Release notes (changes from v17.11):
  - Performance improvement in packet parsing
  - Fixed compatibility issues with C++17 (thanks @echo-Mike !)
  - Read multiple packets from pcap/pcapng files
+ - Build system improvements (thanks @echo-Mike !)
  - New protocols:
    - Packet trailer (a.k.a footer or padding)
    - IPv6 extensions
