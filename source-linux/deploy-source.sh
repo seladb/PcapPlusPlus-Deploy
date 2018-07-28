@@ -7,6 +7,7 @@ sudo mkdir -p $DIST_DIR_NAME/PcapPlusPlus
 
 sudo rsync -av --exclude='.git' --exclude="$DIST_DIR_NAME" . $DIST_DIR_NAME/PcapPlusPlus
 sudo cp ../PcapPlusPlus-Deploy/source-linux/install* $DIST_DIR_NAME/
+sudo cp ../PcapPlusPlus-Deploy/source-linux/uninstall* $DIST_DIR_NAME/
 
 sudo cp ../PcapPlusPlus-Deploy/READMEs/README.release.header $DIST_DIR_NAME/README.release
 sudo tee -a $DIST_DIR_NAME/README.release < ../PcapPlusPlus-Deploy/READMEs/README.release.source
