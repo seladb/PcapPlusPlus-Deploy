@@ -3,7 +3,7 @@ include /usr/local/etc/PcapPlusPlus.mk
 # All Target
 all:
 	g++ $(PCAPPP_INCLUDES) -c -o main.o main.cpp
-	g++ $(PCAPPP_LIBS_DIR) -static-libgcc -static-libstdc++ -o example-app main.o $(PCAPPP_LIBS)
+	g++ $(PCAPPP_LIBS_DIR) -o example-app main.o $(PCAPPP_LIBS)
 
 # Clean Target
 clean:
