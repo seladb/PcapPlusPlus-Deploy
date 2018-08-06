@@ -21,9 +21,9 @@ sudo cp Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap $DIST_DIR_NAME/exam
 sudo cp ../PcapPlusPlus-Deploy/linux-mac/Makefile.non_windows $DIST_DIR_NAME/example-app/Makefile
 
 # modify PcapPlusPlus.mk
-sudo sed -i.bak "s|PCAPPLUSPLUS_HOME :=.*|PCAPPLUSPLUS_HOME := /PcapPlusPlus/Home/Dir|g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
-sudo sed -i.bak "s|Dist/||g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
-sudo sed -i.bak "s|Dist||g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sudo sed -i.bak "s|PCAPPLUSPLUS_HOME :=.*|PCAPPLUSPLUS_HOME := /PcapPlusPlus/Home/Dir|g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && sudo rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sudo sed -i.bak "s|Dist/||g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && sudo rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sudo sed -i.bak "s|Dist||g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && sudo rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
 
 # copy and modify installation scripts
 sudo cp mk/install.sh $DIST_DIR_NAME/
