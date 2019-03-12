@@ -1,27 +1,19 @@
-Release notes (changes from v17.11):
+Release notes (changes from v18.08):
 ------------------------------------
 
- - Massive DPDK enhancements:
-   - Major performance improvements
-   - Fixed some mbuf leakages
-   - DPDK 17.11 and 18.02 support (thanks @luigino !)
-   - Re-designed some of DpdkDevice APIs to make them cleaner, faster and easier to use
-   - Expose DPDK-specific stats
-   - RSS (Receive Side Scaling) support
-   - DPDK TX buffers support
-   - Enable DPDK master core configuration
- - Added IP reassembly module (a.k.a IP de-fragmenetation). Supports both IPv4 and IPv6
- - Added IPv6 support for TCP reassembly
- - Install to custom directory on Linux and MacOS
- - Performance improvement in packet parsing
- - Fixed compatibility issues with C++17 (thanks @echo-Mike !)
- - Read multiple packets from pcap/pcapng files
- - Build system improvements (thanks @echo-Mike !)
- - New protocols:
-   - Packet trailer (a.k.a footer or padding)
-   - IPv6 extensions
- - New and updated utilities:
-   - New IPFragUtil for splitting packets into IP fragments
-   - New IPDefragUtil for reassembling IP fragments into packets
-   - PcapSplitter now supports round-robin splitting
- - Many bugfixes
+- Added a new `DpdkBridge` example which is a PcapPlusPlus implementation for [DPDK's L2 forwarding example](https://doc.dpdk.org/guides-18.08/sample_app_ug/l2_forward_real_virtual.html) - Thanks @vicenterb !
+- Added a new tutorial for using PcapPlusPlus with DPDK which walks through building a simple version of DpdkBridge
+- Added support for raw sockets on Linux and Windows: `RawSocketDevice`
+- Added `DeviceConfiguration` to `PcapLiveDevice` to provide an interface to set WinPcap/libpcap packet buffer size and buffer timeout
+- Refactor of the devices class hierarchy (the new root class is now `IDevice`)
+- Added more accurate time measurement for packet capture in blocking mode
+- Added filtering capabilities to `PcapNgFileWriterDevice` - thanks @vrobles-gee !
+- Fixed bugs in fetching VLAN properties in `VlanLayer` - thanks @Lapshin !
+- Remove layer from packet revamp - removing layer is more intuitive now + added an option to detach a layer from a packet
+- Exposed start and end times in TCP reassembly - thanks @Lnk2past !
+- Added RADIUS layers
+- Revamp of TLV data handling in PcapPlusPlus - simplified the way IPv4 options, TCP options, DHCP options, RADIUS attributes and IPv6 extensions with options are handled. API is now more intuitive and share a common infrastructure
+- Revamp DNS record API + added support for DNS MX records
+- Build system improvements, better support for package managers - thanks @solvingj !
+- Added support for link-types other than Ethernet in PcapLiveDevice - thanks @axasoft !
+- Lots of bugfixes
