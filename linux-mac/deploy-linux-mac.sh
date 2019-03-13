@@ -34,5 +34,5 @@ printf "\necho Uninstallation complete! " | sudo tee -a $DIST_DIR_NAME/uninstall
 # package everything
 sudo tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
 
-# upload to transfer.sh
-curl --upload-file ./$DIST_DIR_NAME.tar.gz https://transfer.sh/$DIST_DIR_NAME.tar.gz
+# upload to upfile.sh
+curl --upload-file ./$DIST_DIR_NAME.tar.gz https://upfile.sh/$DIST_DIR_NAME.tar.gz
