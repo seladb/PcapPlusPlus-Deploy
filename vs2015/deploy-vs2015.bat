@@ -21,3 +21,5 @@ xcopy C:\projects\pcapplusplus-deploy\vs2015\ExampleProject.vcxproj.filters %DIS
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\
 
 curl --upload-file %DIST_DIR_NAME%.zip https://upfile.sh/%DIST_DIR_NAME%.zip
+
+curl -F "file=@%DIST_DIR_NAME%.zip" https://0x0.st
