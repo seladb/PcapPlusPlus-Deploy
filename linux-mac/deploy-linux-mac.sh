@@ -40,7 +40,7 @@ echo $rtn
 
 # upload to firefox send
 ffsend=ffsend-v0.2.42-linux-x64-static
-if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ffsend=ffsend-v0.2.42-macos ; fi
+if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ffsend=ffsend-v0.2.42-macos && brew install openssl ; fi
 wget https://github.com/timvisee/ffsend/releases/download/v0.2.42/$ffsend
 chmod +x $ffsend
 rtn=$(./$ffsend upload ./$DIST_DIR_NAME.tar.gz)
