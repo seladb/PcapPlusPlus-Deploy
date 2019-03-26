@@ -13,6 +13,9 @@ Release notes (changes from v18.08):
 - Added support for raw sockets on Linux and Windows (`RawSocketDevice`)
 - Added support for link-types other than Ethernet in `PcapLiveDevice` - thanks @axasoft !
 - Exposed start and end times in TCP reassembly - thanks @Lnk2past !
+- PcapSplitter:
+  - Added pcapng support
+  - When splitting by connection, multiple flows with the same 5-tuple are now separated to different files
 - Added filtering capabilities to `PcapNgFileWriterDevice` - thanks @vrobles-gee !
 - Added more accurate time measurement for packet capture in blocking mode
 - Added `DeviceConfiguration` to `PcapLiveDevice` to provide an interface to set WinPcap/libpcap packet buffer size and buffer timeout

@@ -28,8 +28,8 @@ matrix:
         - OS_VER=centos-7
     - os: linux
       env:
-        - DOCKER_IMAGE=fedora26
-        - OS_VER=fedora-26
+        - DOCKER_IMAGE=fedora29
+        - OS_VER=fedora-29
     - os: osx
       compiler: clang
       osx_image: xcode7.3
