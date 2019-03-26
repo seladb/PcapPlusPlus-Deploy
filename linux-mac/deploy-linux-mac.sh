@@ -39,5 +39,6 @@ rtn=$(curl --upload-file ./$DIST_DIR_NAME.tar.gz https://upfile.sh/$DIST_DIR_NAM
 echo $rtn
 
 # upload to 0x0.st
+echo Uploading $DIST_DIR_NAME.tar.gz ...
 rtn=$(curl -F "file=@./$DIST_DIR_NAME.tar.gz" https://0x0.st)
 echo $rtn
