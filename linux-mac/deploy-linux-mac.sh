@@ -37,3 +37,11 @@ sudo tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
 # upload to upfile.sh
 rtn=$(curl --upload-file ./$DIST_DIR_NAME.tar.gz https://upfile.sh/$DIST_DIR_NAME.tar.gz)
 echo $rtn
+
+# upload to firefox send
+ffsend=ffsend-v0.2.42-linux-x64-static
+if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ffsend=ffsend-v0.2.42-macos ; fi
+wget https://github.com/timvisee/ffsend/releases/download/v0.2.42/$ffsend
+chmod +x $ffsend
+rtn=$(./$ffsend upload ./$DIST_DIR_NAME.tar.gz)
+echo $rtn
