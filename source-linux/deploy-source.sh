@@ -19,4 +19,12 @@ sudo cp Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap $DIST_DIR_NAME/exam
 sudo cp ../PcapPlusPlus-Deploy/linux-mac/Makefile.non_windows $DIST_DIR_NAME/example-app/Makefile
 
 sudo tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
-curl --upload-file ./$DIST_DIR_NAME.tar.gz https://upfile.sh/$DIST_DIR_NAME.tar.gz
+
+# upload to upfile.sh
+rtn=$(curl --upload-file ./$DIST_DIR_NAME.tar.gz https://upfile.sh/$DIST_DIR_NAME.tar.gz)
+echo $rtn
+
+# upload to 0x0.st
+echo Uploading $DIST_DIR_NAME.tar.gz ...
+rtn=$(curl -F "file=@./$DIST_DIR_NAME.tar.gz" https://0x0.st)
+echo $rtn
