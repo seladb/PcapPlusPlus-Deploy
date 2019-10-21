@@ -11,5 +11,7 @@ task:
     - cd PcapPlusPlus
     - make all
   package_script:
+    - pwd
+    - ls -la
     - PcapPlusPlus-Deploy/linux-mac/deploy-linux-mac.sh
     
