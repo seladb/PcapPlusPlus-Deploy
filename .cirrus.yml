@@ -7,4 +7,6 @@ task:
   configure_script:
     - cd PcapPlusPlus
     - ./configure-linux.sh --default
-  build_script: make all
+  build_script: 
+    - cd PcapPlusPlus
+    - make all
