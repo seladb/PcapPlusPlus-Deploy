@@ -3,6 +3,8 @@ task:
   container:
     matrix:
       image: seladb/ubuntu1804:latest
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
-  configure_script: ./configure-linux.sh --default
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  configure_script:
+    - cd PcapPlusPlus
+    - ./configure-linux.sh --default
   build_script: make all
