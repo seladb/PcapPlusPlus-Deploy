@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
+g++ -dumpversion > gcc.version
 DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-$OS_VER-gcc-$(cat gcc.version)
 
 # change Dist folder name
