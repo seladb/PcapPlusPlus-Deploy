@@ -30,6 +30,7 @@ task:
   name: package-macos
   osx_instance:
     matrix:
+      image: mojave-xcode-10.1
       image: mojave-xcode-11.1
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   configure_script:
