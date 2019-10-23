@@ -19,6 +19,6 @@ cp PcapPlusPlus/Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap PcapPlusPlu
 cp linux-mac/Makefile.non_windows PcapPlusPlus/$DIST_DIR_NAME/example-app/Makefile
 
 # modify PcapPlusPlus.mk
-sed -i.bak "s|PCAPPLUSPLUS_HOME :=.*|PCAPPLUSPLUS_HOME := /PcapPlusPlus/Home/Dir|g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm $DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
-sed -i.bak "s|Dist/||g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
-sed -i.bak "s|Dist||g" $DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sed -i.bak "s|PCAPPLUSPLUS_HOME :=.*|PCAPPLUSPLUS_HOME := /PcapPlusPlus/Home/Dir|g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sed -i.bak "s|Dist/||g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+sed -i.bak "s|Dist||g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak

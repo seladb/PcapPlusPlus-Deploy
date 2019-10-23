@@ -1,8 +1,11 @@
 task:
-  name: ubuntu-18.04
-  container:
+  name: linux
+  env:
     matrix:
-      image: seladb/ubuntu1804:latest
+      - IMAGE_NAME: ubuntu1804
+        OS_VER: ubuntu-18.04
+  container:
+    image: seladb/${IMAGE_NAME}:latest
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   configure_script:
     - cd PcapPlusPlus
@@ -12,5 +15,4 @@ task:
     - make all
   package_script:
     - linux-mac/deploy-linux.sh
-    - ls -la
     
