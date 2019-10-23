@@ -8,6 +8,10 @@ task:
         OS_VER: ubuntu-16.04
       - IMAGE_NAME: ubuntu1804
         OS_VER: ubuntu-18.04
+      - IMAGE_NAME: centos7
+        OS_VER: centos-7
+      - IMAGE_NAME: fedora29
+        OS_VER: fedora-29
   container:
     image: seladb/${IMAGE_NAME}:latest
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
