@@ -1,5 +1,5 @@
 task:
-  name: linux
+  name: package-linux
   env:
     matrix:
       - IMAGE_NAME: ubuntu1404
@@ -23,5 +23,22 @@ task:
     - make all
   package_script:
     - linux-mac/deploy-linux.sh
+  deploy_package_artifacts:
+    path: "package/*"
+
+task:
+  name: package-macos
+  osx_instance:
+    matrix:
+      image: mojave-xcode-11.1
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  configure_script:
+    - cd PcapPlusPlus
+    - ./configure-mac_os_x.sh
+  build_script: 
+    - cd PcapPlusPlus
+    - make all
+  package_script:
+    - linux-mac/deploy-mac.sh
   deploy_package_artifacts:
     path: "package/*"
