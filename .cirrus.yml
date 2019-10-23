@@ -43,3 +43,9 @@ task:
     - linux-mac/deploy-mac.sh
   deploy_package_artifacts:
     path: "package/*"
+
+task:
+  name: package-windows-vs
+  windows_container:
+    image: aziotbld/vs2015
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
