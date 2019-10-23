@@ -15,5 +15,5 @@ task:
     - make all
   package_script:
     - linux-mac/deploy-linux.sh
-  package_artifacts:
+  deploy_package_artifacts:
     path: "package/*"
