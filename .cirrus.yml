@@ -2,6 +2,10 @@ task:
   name: linux
   env:
     matrix:
+      - IMAGE_NAME: ubuntu1404
+        OS_VER: ubuntu-14.04
+      - IMAGE_NAME: ubuntu1604
+        OS_VER: ubuntu-16.04
       - IMAGE_NAME: ubuntu1804
         OS_VER: ubuntu-18.04
   container:
