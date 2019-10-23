@@ -22,3 +22,13 @@ cp linux-mac/Makefile.non_windows PcapPlusPlus/$DIST_DIR_NAME/example-app/Makefi
 sed -i.bak "s|PCAPPLUSPLUS_HOME :=.*|PCAPPLUSPLUS_HOME := /PcapPlusPlus/Home/Dir|g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
 sed -i.bak "s|Dist/||g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
 sed -i.bak "s|Dist||g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
+
+# copy and modify installation scripts
+cp PcapPlusPlus/mk/install.sh PcapPlusPlus/$DIST_DIR_NAME/
+cp PcapPlusPlus/mk/uninstall.sh PcapPlusPlus/$DIST_DIR_NAME/
+printf "\necho Installation complete! " | tee -a PcapPlusPlus/$DIST_DIR_NAME/install.sh
+printf "\necho Uninstallation complete! " | tee -a PcapPlusPlus/$DIST_DIR_NAME/uninstall.sh
+
+# package everything
+mkdir package
+tar -zcvf package/$DIST_DIR_NAME.tar.gz PcapPlusPlus/$DIST_DIR_NAME/
