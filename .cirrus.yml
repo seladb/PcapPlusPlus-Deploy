@@ -27,6 +27,16 @@ task:
     path: "package/*"
 
 task:
+  name: package-source
+  container:
+    image: seladb/ubuntu1804:latest  
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  package_script:
+    - source-linux/deploy-source.sh
+  deploy_package_artifacts:
+    path: "package/*" 
+
+task:
   name: package-macos
   osx_instance:
     matrix:
@@ -43,9 +53,3 @@ task:
     - linux-mac/deploy-mac.sh
   deploy_package_artifacts:
     path: "package/*"
-
-task:
-  name: package-windows-vs
-  windows_container:
-    image: aziotbld/vs2015
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
