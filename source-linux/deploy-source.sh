@@ -20,4 +20,4 @@ cp linux-mac/Makefile.non_windows $DIST_DIR_NAME/example-app/Makefile
 
 # package everything
 mkdir package
-tar -zcvf ../package/$DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
+tar -zcvf package/$DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
