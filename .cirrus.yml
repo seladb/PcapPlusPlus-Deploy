@@ -31,6 +31,8 @@ task:
   container:
     image: seladb/ubuntu1804:latest  
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  install_script:
+    - apt-get -y install rsync
   package_script:
     - source-linux/deploy-source.sh
   deploy_package_artifacts:
