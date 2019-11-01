@@ -32,27 +32,15 @@ matrix:
 
 before_install:
   - cd .. && git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-       docker pull seladb/$DOCKER_IMAGE:latest;
-       docker run -itd --name $DOCKER_IMAGE -v $(pwd):/PcapPlusPlus seladb/$DOCKER_IMAGE;
-    fi
 
-before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./configure-mac_os_x.sh; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && ./configure-linux.sh --default"; fi
+  before_script:
+  - ./configure-mac_os_x.sh
   
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-       make all;
-       cd Tests/Packet++Test && Bin/Packet++Test;
-       cd ../Pcap++Test && sudo Bin/Pcap++Test -n;
-       cd ../../ && g++ -dumpversion > gcc.version;
-    else
-       docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && make all";
-       docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test";
-       docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus/Tests/Pcap++Test && Bin/Pcap++Test -n -k 0";
-       docker exec -i $DOCKER_IMAGE bash -c "cd PcapPlusPlus && g++ -dumpversion > gcc.version";
-    fi
+  - make all;
+  - cd Tests/Packet++Test && Bin/Packet++Test
+  - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
+  - cd ../../ && g++ -dumpversion > gcc.version
 
 after_success:
-  - ../PcapPlusPlus-Deploy/linux-mac/deploy-linux-mac.sh
+  - ../PcapPlusPlus-Deploy/linux-mac/deploy-mac.sh
