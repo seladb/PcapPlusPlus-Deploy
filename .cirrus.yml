@@ -23,7 +23,7 @@ task:
     - make all
   test_script:
     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
-    - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
+    - cd ../Pcap++Test && Bin/Pcap++Test -n
   package_script:
     - linux-mac/deploy-linux.sh
   deploy_package_artifacts:
@@ -57,7 +57,7 @@ task:
     - gmake all
   test_script:
     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
-    - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
+    - cd ../Pcap++Test && Bin/Pcap++Test -n
   package_script:
     - linux-mac/deploy-freebsd.sh
   deploy_package_artifacts:
