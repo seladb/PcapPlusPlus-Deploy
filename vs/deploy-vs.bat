@@ -23,6 +23,8 @@ move Dist %DIST_DIR_NAME%
 if not exist "C:\projects\pcapplusplus-deploy\vs-partial-build" mkdir C:\projects\pcapplusplus-deploy\vs-partial-build
 xcopy %DIST_DIR_NAME%.zip C:\projects\pcapplusplus-deploy\vs-partial-build /Y
 
+echo Job name: %APPVEYOR_JOB_NAME%
+
 :: curl --upload-file %DIST_DIR_NAME%.zip https://upfile.sh/%DIST_DIR_NAME%.zip
 
 :: echo Uploading %DIST_DIR_NAME%.zip ...

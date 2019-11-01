@@ -29,6 +29,8 @@ mkdir %TARGET_DIR%
 echo target dir: %TARGET_DIR%
 dir %TARGET_DIR%
 
+echo Job name: %APPVEYOR_JOB_NAME%
+
 xcopy %BASE_DIR%\%X86_DEBUG_NAME%\header\* %TARGET_DIR%\header /s /i
 xcopy %BASE_DIR%\%X86_DEBUG_NAME%\ExampleProject\* %TARGET_DIR%\ExampleProject /s /i
 xcopy %BASE_DIR%\%X86_DEBUG_NAME%\README.release %TARGET_DIR%\ /Y

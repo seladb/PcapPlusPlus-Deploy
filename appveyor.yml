@@ -75,6 +75,6 @@ after_test:
 
 artifacts:
   - path: vs-package
-    name: VS package
+    name: VS-Package
   - path: mingw-package
-    name: MinGW package
+    name: MinGW-Package
