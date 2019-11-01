@@ -1,4 +1,3 @@
-
 task:
   name: package-linux
   env:
@@ -22,6 +21,9 @@ task:
   build_script: 
     - cd PcapPlusPlus
     - make all
+  test_script:
+    - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
+    - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
   package_script:
     - linux-mac/deploy-linux.sh
   deploy_package_artifacts:
@@ -37,4 +39,26 @@ task:
   package_script:
     - source-linux/deploy-source.sh
   deploy_package_artifacts:
-    path: "package/*" 
+    path: "package/*"
+
+  task:
+    name: package-freebsd
+    freebsd_instance:
+      matrix:
+        image_family: freebsd-11-2
+        image_family: freebsd-12-0
+    install_script: pkg install -y git libpcap bash gsed gmake        
+    get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+    configure_script:
+      - cd PcapPlusPlus
+      - ./configure-freebsd.sh --default
+    build_script:
+      - cd PcapPlusPlus
+      - gmake all
+    test_script:
+      - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
+      - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
+    package_script:
+      - linux-mac/deploy-freebsd.sh
+    deploy_package_artifacts:
+      path: "package/*"

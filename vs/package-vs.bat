@@ -36,4 +36,4 @@ xcopy %BASE_DIR%\%X64_RELEASE_NAME%\examples\* %TARGET_DIR%\x64\examples /s /i
 
 7z a -r %TARGET_DIR%.zip %TARGET_DIR%\
 if not exist "vs-package" mkdir vs-package
-xcopy %TARGET_DIR%.zip vs-package
+xcopy %TARGET_DIR%.zip vs-package /Y
