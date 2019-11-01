@@ -20,12 +20,6 @@ environment:
 cache:
   - vs-package
 
-artifacts:
-  - path: vs-package
-    name: VS package
-  - path: mingw-package
-    name: MinGW package
-
 install:
   - git submodule update --init --recursive
   - git clone https://github.com/mfontanini/winpcap-installer.git
@@ -58,9 +52,15 @@ test_script:
   - cd ..\Pcap++Test
   - Bin\Pcap++Test.exe -n
 
-deploy_script:
+after_test:
   - cd C:\projects\PcapPlusPlus
   - if "%compiler%"=="mingw32" C:\projects\pcapplusplus-deploy\mingw\deploy-mingw.bat
   - if "%compiler%"=="mingw-w64" C:\projects\pcapplusplus-deploy\mingw\deploy-mingw.bat
   - if "%compiler:~0,4%"=="vs20" C:\projects\pcapplusplus-deploy\vs\deploy-vs.bat %compiler%
   - if "%compiler:~0,4%"=="vs20" if "%action%"=="vs-package" C:\projects\pcapplusplus-deploy\vs\package-vs.bat %compiler%
+
+artifacts:
+  - path: vs-package
+    name: VS package
+  - path: mingw-package
+    name: MinGW package

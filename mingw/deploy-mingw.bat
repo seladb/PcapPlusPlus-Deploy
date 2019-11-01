@@ -23,8 +23,8 @@ copy C:\projects\pcapplusplus-deploy\mingw\Makefile.windows %DIST_DIR_NAME%\exam
 copy C:\projects\pcapplusplus-deploy\READMEs\README.md.example-app %DIST_DIR_NAME%\example-app\README.md
 
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\
-if not exist "mingw-package" mkdir mingw-package
-xcopy %DIST_DIR_NAME%.zip mingw-package
+if not exist "C:\projects\pcapplusplus-deploy\mingw-package" mkdir C:\projects\pcapplusplus-deploy\mingw-package
+xcopy %DIST_DIR_NAME%.zip C:\projects\pcapplusplus-deploy\mingw-package
 
 :: curl --upload-file %DIST_DIR_NAME%.zip https://upfile.sh/%DIST_DIR_NAME%.zip
 
