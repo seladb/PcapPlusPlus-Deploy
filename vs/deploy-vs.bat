@@ -20,8 +20,8 @@ move Dist %DIST_DIR_NAME%
 
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\
 
-if not exist "C:\projects\pcapplusplus-deploy\vs-package" mkdir C:\projects\pcapplusplus-deploy\vs-package
-xcopy %DIST_DIR_NAME%.zip C:\projects\pcapplusplus-deploy\vs-package
+if not exist "C:\projects\pcapplusplus-deploy\vs-partial-build" mkdir C:\projects\pcapplusplus-deploy\vs-partial-build
+xcopy %DIST_DIR_NAME%.zip C:\projects\pcapplusplus-deploy\vs-partial-build
 
 :: curl --upload-file %DIST_DIR_NAME%.zip https://upfile.sh/%DIST_DIR_NAME%.zip
 

@@ -1,5 +1,5 @@
 set COMPILER=%1
-set BASE_DIR=vs-package
+set BASE_DIR=vs-partial-build
 set /p LATEST_RELEASE=<..\misc\latest_release.version
 
 set X86_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Debug-x86
@@ -35,3 +35,4 @@ xcopy %BASE_DIR%\%X86_RELEASE_NAME%\examples\* %TARGET_DIR%\x86\examples /s /i
 xcopy %BASE_DIR%\%X64_RELEASE_NAME%\examples\* %TARGET_DIR%\x64\examples /s /i
 
 7z a -r %TARGET_DIR%.zip %TARGET_DIR%\
+xcopy %TARGET_DIR%.zip vs-package
