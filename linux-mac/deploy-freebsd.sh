@@ -1,8 +1,7 @@
-#!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
 clang++ -dumpversion > clang.version
-DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-$(freebsd-version -u | cut -c1-4)-clang-$(cat clang.version)
+DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-freebsd-$(freebsd-version -u | cut -c1-4)-clang-$(cat clang.version)
 
 # change Dist folder name
 mv PcapPlusPlus/Dist PcapPlusPlus/$DIST_DIR_NAME

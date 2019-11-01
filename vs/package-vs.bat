@@ -7,6 +7,16 @@ set X64_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Debug-x64
 set X86_RELEASE_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Release-x86
 set X64_RELEASE_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Release-x64
 
+echo dir:
+dir
+
+echo dir vs-partial-build:
+dir vs-partial-build
+
+echo dir BASE_DIR:
+dir %BASE_DIR%
+
+
 7z x %BASE_DIR%\%X86_DEBUG_NAME%.zip -o"%BASE_DIR%"
 7z x %BASE_DIR%\%X64_DEBUG_NAME%.zip -o"%BASE_DIR%"
 7z x %BASE_DIR%\%X86_RELEASE_NAME%.zip -o"%BASE_DIR%"
@@ -15,6 +25,9 @@ set X64_RELEASE_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Release-x6
 set TARGET_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%
 set TARGET_DIR=%BASE_DIR%\%TARGET_NAME%
 mkdir %TARGET_DIR%
+
+echo target dir: %TARGET_DIR%
+dir %TARGET_DIR%
 
 xcopy %BASE_DIR%\%X86_DEBUG_NAME%\header\* %TARGET_DIR%\header /s /i
 xcopy %BASE_DIR%\%X86_DEBUG_NAME%\ExampleProject\* %TARGET_DIR%\ExampleProject /s /i
