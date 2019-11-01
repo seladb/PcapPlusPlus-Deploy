@@ -33,7 +33,7 @@ matrix:
 before_install:
   - cd .. && git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
 
-  before_script:
+before_script:
   - ./configure-mac_os_x.sh
   
 script:
