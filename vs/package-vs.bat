@@ -1,5 +1,5 @@
 set COMPILER=%1
-set BASE_DIR=C:\projects\vs-package
+set BASE_DIR=vs-package
 set /p LATEST_RELEASE=<..\misc\latest_release.version
 
 set X86_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Debug-x86

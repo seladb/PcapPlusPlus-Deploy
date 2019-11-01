@@ -20,8 +20,8 @@ move Dist %DIST_DIR_NAME%
 
 7z a -r %DIST_DIR_NAME%.zip %DIST_DIR_NAME%\
 
-if not exist "C:\projects\vs-package" mkdir C:\projects\vs-package
-xcopy %DIST_DIR_NAME%.zip C:\projects\vs-package
+if not exist "vs-package" mkdir vs-package
+xcopy %DIST_DIR_NAME%.zip vs-package
 
 :: curl --upload-file %DIST_DIR_NAME%.zip https://upfile.sh/%DIST_DIR_NAME%.zip
 

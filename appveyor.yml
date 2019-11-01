@@ -18,11 +18,13 @@ environment:
       config: Release
 
 cache:
-  - C:\projects\vs-package
+  - vs-package
 
 artifacts:
-  - path: C:\projects\vs-package
-    name: VS build
+  - path: vs-package
+    name: VS package
+  - path: mingw-package
+    name: MinGW package
 
 install:
   - git submodule update --init --recursive
