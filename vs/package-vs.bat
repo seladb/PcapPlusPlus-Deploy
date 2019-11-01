@@ -1,17 +1,18 @@
-set BASE_DIR=%1
+set COMPILER=%1
+set BASE_DIR=%2
 set /p LATEST_RELEASE=<..\misc\latest_release.version
 
-set X86_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-vs2015-Debug-x86
-set X64_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-vs2015-Debug-x64
-set X86_RELEASE_NAME=pcapplusplus-%LATEST_RELEASE%-windows-vs2015-Release-x86
-set X64_RELEASE_NAME=pcapplusplus-%LATEST_RELEASE%-windows-vs2015-Release-x64
+set X86_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Debug-x86
+set X64_DEBUG_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Debug-x64
+set X86_RELEASE_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Release-x86
+set X64_RELEASE_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%-Release-x64
 
 7z x %BASE_DIR%\%X86_DEBUG_NAME%.zip -o"%BASE_DIR%"
 7z x %BASE_DIR%\%X64_DEBUG_NAME%.zip -o"%BASE_DIR%"
 7z x %BASE_DIR%\%X86_RELEASE_NAME%.zip -o"%BASE_DIR%"
 7z x %BASE_DIR%\%X64_RELEASE_NAME%.zip -o"%BASE_DIR%"
 
-set TARGET_NAME=pcapplusplus-%LATEST_RELEASE%-windows-vs2015
+set TARGET_NAME=pcapplusplus-%LATEST_RELEASE%-windows-%COMPILER%
 set TARGET_DIR=%BASE_DIR%\%TARGET_NAME%
 mkdir %TARGET_DIR%
 
