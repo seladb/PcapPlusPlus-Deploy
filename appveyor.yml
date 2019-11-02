@@ -3,36 +3,13 @@ version: 1.0.{build}
 environment:
   matrix:
     - compiler: mingw32
-      action: build
     - compiler: mingw-w64
-      action: build
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       compiler: vs2015
-      platform: x86
-      config: Debug
-      action: build
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      compiler: vs2015
-      platform: x86
-      config: Release
-      action: build
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      compiler: vs2015
-      platform: x64
-      config: Debug
-      action: build
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      compiler: vs2015
-      platform: x64
-      config: Release
-      action: build
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      compiler: vs2015
-      action: package
-
-
-cache:
-  - vs-partial-build
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      compiler: vs2017
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+      compiler: vs2019
 
 install:
   - git submodule update --init --recursive
@@ -47,31 +24,27 @@ install:
   - if "%compiler:~0,4%"=="vs20" powershell -command "Invoke-WebRequest ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -OutFile pthreads-w32-2-9-1-release.zip" && 7z x pthreads-w32-2-9-1-release.zip -oC:\pthreads
 
 before_build:
-  - if "%action%"=="build" cd C:\projects
-  - if "%action%"=="build" git clone https://github.com/seladb/PcapPlusPlus.git
-  - if "%action%"=="build" cd C:\projects\PcapPlusPlus
-  - if "%action%"=="build" if "%compiler%"=="mingw32" configure-windows-mingw.bat mingw32 -m C:\MinGW -w C:\WpdPack
-  - if "%action%"=="build" if "%compiler%"=="mingw-w64" configure-windows-mingw.bat mingw-w64 -m C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32 -w C:\WpdPack -s C:\msys64
-  - if "%action%"=="build" if "%compiler:~0,4%"=="vs20" configure-windows-visual-studio.bat -v %compiler% -w C:\WpdPack -p C:\pthreads
+  - cd C:\projects
+  - git clone https://github.com/seladb/PcapPlusPlus.git
+  - cd C:\projects\PcapPlusPlus
+  - if "%compiler%"=="mingw32" configure-windows-mingw.bat mingw32 -m C:\MinGW -w C:\WpdPack
+  - if "%compiler%"=="mingw-w64" configure-windows-mingw.bat mingw-w64 -m C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32 -w C:\WpdPack -s C:\msys64
 
 build_script:
-  - if "%action%"=="build" if "%compiler%"=="mingw32" mingw32-make all
-  - if "%action%"=="build" if "%compiler%"=="mingw-w64" mingw32-make all
-  - if "%action%"=="build" if "%compiler:~0,4%"=="vs20" powershell -command "msbuild mk\%compiler%\PcapPlusPlus.sln /p:Configuration=%config% /p:Platform=%platform%"
-  - if "%action%"=="build" if "%compiler:~0,4%"=="vs20" powershell -command "msbuild mk\%compiler%\PcapPlusPlus-Examples.sln /p:Configuration=%config% /p:Platform=%platform%"
+  - if "%compiler%"=="mingw32" mingw32-make all
+  - if "%compiler%"=="mingw-w64" mingw32-make all
+  - if "%compiler:~0,4%"=="vs20" C:\projects\pcapplusplus-deploy\vs\build-and-copy.bat 
 
 test_script:
-  - if "%action%"=="build" cd C:\projects\PcapPlusPlus\Tests\Packet++Test
-  - if "%action%"=="build" Bin\Packet++Test.exe
-  - if "%action%"=="build" cd ..\Pcap++Test
-  - if "%action%"=="build" Bin\Pcap++Test.exe -n
+  - if not "%compiler:~0,4%"=="vs20" cd C:\projects\PcapPlusPlus\Tests\Packet++Test
+  - if not "%compiler:~0,4%"=="vs20" Bin\Packet++Test.exe
+  - if not "%compiler:~0,4%"=="vs20" cd ..\Pcap++Test
+  - if not "%compiler:~0,4%"=="vs20" Bin\Pcap++Test.exe -n
 
 after_test:
-  - if "%action%"=="build" cd C:\projects\PcapPlusPlus
-  - if "%action%"=="build" if "%compiler%"=="mingw32" C:\projects\pcapplusplus-deploy\mingw\deploy-mingw.bat
-  - if "%action%"=="build" if "%compiler%"=="mingw-w64" C:\projects\pcapplusplus-deploy\mingw\deploy-mingw.bat
-  - if "%action%"=="build" if "%compiler:~0,4%"=="vs20" C:\projects\pcapplusplus-deploy\vs\deploy-vs.bat %compiler%
-  - if "%action%"=="package" if "%compiler:~0,4%"=="vs20"  C:\projects\pcapplusplus-deploy\vs\package-vs.bat %compiler%
+  - cd C:\projects\PcapPlusPlus
+  - if "%compiler%"=="mingw32" C:\projects\pcapplusplus-deploy\mingw\deploy-mingw.bat
+  - if "%compiler%"=="mingw-w64" C:\projects\pcapplusplus-deploy\mingw\deploy-mingw.bat
 
 artifacts:
   - path: vs-package
