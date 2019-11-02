@@ -82,5 +82,5 @@ if not exist "%TARGET_DIR%\ExampleProject" mkdir %TARGET_DIR%\ExampleProject
 xcopy %DEPLOY_PROJ_DIR%\vs\ExampleProject.sln %TARGET_DIR%\ExampleProject /Y
 echo f | xcopy %DEPLOY_PROJ_DIR%\vs\ExampleProject.vcxproj.%compiler% %TARGET_DIR%\ExampleProject\ExampleProject.vcxproj /Y /f
 xcopy %DEPLOY_PROJ_DIR%\vs\ExampleProject.vcxproj.filters %TARGET_DIR%\ExampleProject /Y
-xcopy %DEPLOY_PROJ_DIR%\PcapPlusPlusPropertySheet.props %TARGET_DIR%\ExampleProject /Y
+xcopy %DEPLOY_PROJ_DIR%\vs\PcapPlusPlusPropertySheet.props %TARGET_DIR%\ExampleProject /Y
 
