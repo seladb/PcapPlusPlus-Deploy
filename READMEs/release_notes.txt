@@ -1,25 +1,40 @@
-Release notes (changes from v18.08):
+Release notes (changes from v19.04):
 ------------------------------------
 
-- DPDK support enhancements:
-  - Added support for the newest DPDK releases: 18.05, 18.08, 18.11, 19.02
-  - Added a new `DpdkBridge` example which is a PcapPlusPlus implementation for [DPDK's L2 forwarding example](https://doc.dpdk.org/guides-18.08/sample_app_ug/l2_forward_real_virtual.html) - Thanks @vicenterb !
-  - Added a new tutorial for using PcapPlusPlus with DPDK which walks through building a simple version of DpdkBridge
-- Packet parsing and crafting enhancements:
-  - Added RADIUS layer
-  - Revamped DNS record API and added support for DNS MX records
-  - Revamped remove layer from packet - removing a layer is more intuitive now + added an option to detach a layer from a packet
-  - Revamped TLV data handling - simplified the way IPv4 options, TCP options, DHCP options, RADIUS attributes and IPv6 extensions with options are handled. API is now more intuitive and shares a common infrastructure
-  - Fixed bugs in fetching VLAN properties in `VlanLayer` - thanks @Lapshin !
-- Added support for raw sockets on Linux and Windows (`RawSocketDevice`)
-- Added support for link-types other than Ethernet in `PcapLiveDevice` - thanks @axasoft !
-- Exposed start and end times in TCP reassembly - thanks @Lnk2past !
-- PcapSplitter:
-  - Added pcapng support
-  - When splitting by connection, multiple flows with the same 5-tuple are now separated to different files
-- Added filtering capabilities to `PcapNgFileWriterDevice` - thanks @vrobles-gee !
-- Added more accurate time measurement for packet capture in blocking mode
-- Added `DeviceConfiguration` to `PcapLiveDevice` to provide an interface to set WinPcap/libpcap packet buffer size and buffer timeout
-- Refactored the devices class hierarchy (the new root class is now `IDevice`)
-- Build system improvements to provide better support for package managers - thanks @solvingj !
-- Lots of bugfixes
+- Added support for Visual Studio 2017 and 2019
+- Added support for DPDK 19.08 (thanks @gx740 !)
+- Major improvements in TCP reassembly (thanks @gx740 !):
+    - Reducing memory consumption by cleaning up old connections 
+    - A lot of performance and code optimizations
+- Added out-of-the-box support for MacOS 10.14 Mojave and later
+- Added support for FreeBSD (thanks @rickyzhang82 !)
+- Added support for GTP v1 protocol
+- Added DPDK KNI support (thanks @echo-Mike !)
+- Added KniPong example to demo the new KNI API (thanks @echo-Mike !)
+- Lots of performance optimizations and code cleanups (special thanks to @gx740 !)
+- Major revamp of reading/writing pcapng files - use streaming instead of memory copies and added support for compression (thanks @Dysl3xik !)
+- Added support for [pcap_setdirection](https://linux.die.net/man/3/pcap_setdirection) in `PcapLiveDevice` (thanks @MrSiz !)
+- Performance optimization and fixes in IPReassembly (thanks @gx740, @silviucpp !)
+- Added a new `BPFStringFilter` pcap filter to handle raw BPF filter strings and deprecated the old `IPcapDevice::matchPacketWithFilter()` API (thanks @Dysl3xik !)
+- Let the user add custom LDFLAGS to the main Makefile (thanks @rom1sqr !)
+- Added data validations in `IPv4Layer` before parsing the next layers (thanks @gx740 !)
+- Created a new unit-test framework to make it easier to write unit-tests
+- Replaced old 3rd-party __debug-new__ with new homegrown [MemPlumber](https://github.com/seladb/MemPlumber)
+- Tons of bug fixes (special thanks to @gx740 , @echo-Mike , @Dysl3xik !)
+
+Contributors
+------------
+
+Thank you for everyone who contributed to this release:
+
+- @gx740 
+- @echo-Mike 
+- @Dysl3xik 
+- @rickyzhang82 
+- @MrSiz 
+- Roman Koshelev
+- @silviucpp
+- @eteran 
+- @tomerb 
+- @rom1sqr 
+- @christinaa 
