@@ -1,4 +1,4 @@
-Release notes (changes from v19.04):
+#Release notes (changes from v19.04)
 ------------------------------------
 
 - Added support for Visual Studio 2017 and 2019
