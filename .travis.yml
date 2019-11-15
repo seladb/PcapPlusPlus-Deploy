@@ -29,7 +29,7 @@ matrix:
       osx_image: xcode11.2
 
 before_install:
-  - cd .. && git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
+  - git clone https://github.com/seladb/PcapPlusPlus.git && cd PcapPlusPlus
 
 before_script:
   - ./configure-mac_os_x.sh
@@ -38,7 +38,7 @@ script:
   - make all
   - cd Tests/Packet++Test && Bin/Packet++Test
   - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
-  - cd ../../ && g++ -dumpversion > gcc.version
+  - cd ../../../ && g++ -dumpversion > gcc.version
 
 after_success:
-  - ../PcapPlusPlus-Deploy/linux-mac/deploy-mac.sh
+  - linux-mac/deploy-mac.sh
