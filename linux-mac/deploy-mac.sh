@@ -35,4 +35,13 @@ printf "\necho Uninstallation complete! " | tee -a PcapPlusPlus/$DIST_DIR_NAME/u
 # package everything
 mkdir package
 cd PcapPlusPlus
-tar -zcvf ../package/$DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
+tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
+
+# upload to upfile.sh
+rtn=$(curl --upload-file ./$DIST_DIR_NAME.tar.gz https://upfile.sh/$DIST_DIR_NAME.tar.gz)
+echo $rtn
+
+# upload to 0x0.st
+echo Uploading $DIST_DIR_NAME.tar.gz ...
+rtn=$(curl -F "file=@./$DIST_DIR_NAME.tar.gz" https://0x0.st)
+echo $rtn
