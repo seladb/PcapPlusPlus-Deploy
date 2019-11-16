@@ -47,9 +47,13 @@ script:
 after_success:
   - linux-mac/deploy-mac.sh
 
+before_deploy:
+  - export TRAVIS_TAG=${$(cat misc/latest_release.version)-$(date +'%Y%m%d%H%M%S')}
+
 deploy:
   - provider: releases
     file_glob: true
     file: PcapPlusplus/pcapplusplus-*.tar.gz
     skip_cleanup: true
     api_key: $DEPLOY_GH_TOKEN
+    draft: true
