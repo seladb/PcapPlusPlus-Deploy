@@ -1,6 +1,10 @@
 sudo: required
 language: cpp
 
+env:
+  global:
+    - secure: "ZsJl0izF+XlZVreBT9IdqbVD2cvQhGvK8ABTvULGtlKR3ZKw1U3/UOy4U1mo6/ficuCBNvRe9y8NuzJSNMH5u5uR8j6MHt6K4RY0bz+6dXPYV2eEJt+MLze0DHH9PNqdB/4Zafxk0X6vPW7VLMQQDyNfHs2sPJJjIlhgfFyEi9idvU1K3HDKkf/1thuZ2A70ykAHkDerNawVdtpVvLnQU/OK5v3MYubLORdD3dNeaCiPtdtSAyF4clo30QHAk0Lgvx3lw8Qg0XjZlB/7wPIB9Bc//1y56tkWHIXZfS+l8z9MU292Vhf9KJgWVB83J+hQywn8SSKY/ik9KO4bpHO9LwBdagD4uoEZnGh9urfAM52a20ivqKg4oU+Aa+4ITWlkPFYnaonn9IcngWLgQnyPTVsxcOl15mUTu8RyiK3ZZ8z3JQMRYXM9b4Kdfeo/9VrtYsWyWs43/FO8P5b1Mun77jVWsVFVqV2ETR0bzgg76t7MO4Ui5HPDsRyNrZ/DWaGqYmCBuk0IjGnoGWuE//Y8ZKLlVwxSExD6UryNaxw1TG5efLyoBzdryBnMCCwA2g0uHh386ygEPAuyTOn4iUJV6+lmVwTeDgLGMhFU4iI24tyB+xEtMFdgQDuNyk4x6QfZNivGoxKWxvqTt5TZPololPGjjAlLhiGS9jpBhNmSyBQ="
+
 matrix:
   include:
     - os: osx
@@ -42,3 +46,10 @@ script:
 
 after_success:
   - linux-mac/deploy-mac.sh
+
+deploy:
+  - provider: releases
+    file_glob: true
+    file: pcapplusplus-*.tar.gz
+    skip_cleanup: true
+    api_key: $DEPLOY_GH_TOKEN
