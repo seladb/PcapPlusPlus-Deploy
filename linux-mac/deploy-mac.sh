@@ -12,7 +12,7 @@ mv PcapPlusPlus/Dist PcapPlusPlus/$DIST_DIR_NAME
 
 # create README.release
 cp READMEs/README.release.header PcapPlusPlus/$DIST_DIR_NAME/README.release
-tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/README.release.linux_mac
+tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/README.release.macos
 tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/release_notes.txt
 
 # copy and modify example app
@@ -36,8 +36,3 @@ printf "\necho Uninstallation complete! " | tee -a PcapPlusPlus/$DIST_DIR_NAME/u
 mkdir package
 cd PcapPlusPlus
 tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
-
-# upload to 0x0.st
-echo Uploading $DIST_DIR_NAME.tar.gz ...
-rtn=$(curl -F "file=@./$DIST_DIR_NAME.tar.gz" https://0x0.st)
-echo $rtn

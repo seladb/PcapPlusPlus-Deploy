@@ -8,7 +8,7 @@ mv PcapPlusPlus/Dist PcapPlusPlus/$DIST_DIR_NAME
 
 # create README.release
 cp READMEs/README.release.header PcapPlusPlus/$DIST_DIR_NAME/README.release
-tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/README.release.linux_mac
+tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/README.release.freebsd
 tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/release_notes.txt
 
 # copy and modify example app
