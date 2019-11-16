@@ -50,6 +50,6 @@ after_success:
 deploy:
   - provider: releases
     file_glob: true
-    file: pcapplusplus-*.tar.gz
+    file: PcapPlusplus/pcapplusplus-*.tar.gz
     skip_cleanup: true
     api_key: $DEPLOY_GH_TOKEN
