@@ -75,7 +75,9 @@ call %DEPLOY_PROJ_DIR%\vs\clean.bat
 
 
 :: copy README.release file
-echo f | xcopy %DEPLOY_PROJ_DIR%\READMEs\README.release.win.vs %TARGET_DIR%\README.release /Y /f
+copy %DEPLOY_PROJ_DIR%\READMEs\README.release.header %TARGET_DIR%\README.release
+type %DEPLOY_PROJ_DIR%\READMEs\README.release.win.vs >> %TARGET_DIR%\README.release
+type %DEPLOY_PROJ_DIR%\READMEs\release_notes.txt >> %TARGET_DIR%\README.release
 
 :: copy example project
 if not exist "%TARGET_DIR%\ExampleProject" mkdir %TARGET_DIR%\ExampleProject
