@@ -1,22 +1,21 @@
-#!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-g++ -dumpversion > gcc.version
-DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-$OS_VER-gcc-$(cat gcc.version)
+clang++ -dumpversion > clang.version
+DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-freebsd-$(freebsd-version -u | cut -c1-4)-clang-$(cat clang.version)
 
 # change Dist folder name
 mv PcapPlusPlus/Dist PcapPlusPlus/$DIST_DIR_NAME
 
 # create README.release
 cp READMEs/README.release.header PcapPlusPlus/$DIST_DIR_NAME/README.release
-tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/README.release.linux
+tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/README.release.freebsd
 tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/release_notes.txt
 
 # copy and modify example app
 mkdir PcapPlusPlus/$DIST_DIR_NAME/example-app
 cp PcapPlusPlus/Examples/Tutorials/Tutorial-HelloWorld/main.cpp PcapPlusPlus/$DIST_DIR_NAME/example-app
 cp PcapPlusPlus/Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap PcapPlusPlus/$DIST_DIR_NAME/example-app
-cp linux-mac/Makefile.non_windows PcapPlusPlus/$DIST_DIR_NAME/example-app/Makefile
+cp linux-unix/Makefile.non_windows PcapPlusPlus/$DIST_DIR_NAME/example-app/Makefile
 
 # modify PcapPlusPlus.mk
 sed -i.bak "s|PCAPPLUSPLUS_HOME :=.*|PCAPPLUSPLUS_HOME := /PcapPlusPlus/Home/Dir|g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak

@@ -16,7 +16,7 @@ tee -a $DIST_DIR_NAME/README.release < READMEs/release_notes.txt
 mkdir $DIST_DIR_NAME/example-app
 cp PcapPlusPlus/Examples/Tutorials/Tutorial-HelloWorld/main.cpp $DIST_DIR_NAME/example-app
 cp PcapPlusPlus/Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap $DIST_DIR_NAME/example-app
-cp linux-mac/Makefile.non_windows $DIST_DIR_NAME/example-app/Makefile
+cp linux-unix/Makefile.non_windows $DIST_DIR_NAME/example-app/Makefile
 
 # package everything
 mkdir package

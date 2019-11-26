@@ -25,7 +25,7 @@ task:
     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
     - cd ../Pcap++Test && Bin/Pcap++Test -n
   package_script:
-    - linux-mac/deploy-linux.sh
+    - linux-unix/deploy-linux.sh
   deploy_package_artifacts:
     path: "package/*"
 
@@ -59,6 +59,6 @@ task:
     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
     - cd ../Pcap++Test && Bin/Pcap++Test -n
   package_script:
-    - linux-mac/deploy-freebsd.sh
+    - linux-unix/deploy-freebsd.sh
   deploy_package_artifacts:
     path: "package/*"

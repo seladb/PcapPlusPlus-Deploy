@@ -45,7 +45,7 @@ script:
   - cd ../../../ && g++ -dumpversion > gcc.version
 
 after_success:
-  - linux-mac/deploy-mac.sh
+  - linux-unix/deploy-mac.sh
 
 before_deploy:
   - export TRAVIS_TAG=$(cat misc/latest_release.version)-$(date +'%Y%m%d%H')
