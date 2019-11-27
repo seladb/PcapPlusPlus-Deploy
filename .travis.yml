@@ -43,8 +43,6 @@ script:
   - cd Tests/Packet++Test && Bin/Packet++Test
   - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
   - cd ../../../ && g++ -dumpversion > gcc.version
-
-after_success:
   - linux-unix/deploy-mac.sh
 
 before_deploy:
