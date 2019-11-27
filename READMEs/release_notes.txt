@@ -39,3 +39,4 @@ Thank you for everyone who contributed to this release:
 - @Minilulatsch
 - @rom1sqr 
 - @christinaa 
+- @russkel 
