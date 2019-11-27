@@ -15,7 +15,7 @@ tee -a PcapPlusPlus/$DIST_DIR_NAME/README.release < READMEs/release_notes.txt
 mkdir PcapPlusPlus/$DIST_DIR_NAME/example-app
 cp PcapPlusPlus/Examples/Tutorials/Tutorial-HelloWorld/main.cpp PcapPlusPlus/$DIST_DIR_NAME/example-app
 cp PcapPlusPlus/Examples/Tutorials/Tutorial-HelloWorld/1_packet.pcap PcapPlusPlus/$DIST_DIR_NAME/example-app
-cp linux-unix/Makefile.non_windows PcapPlusPlus/$DIST_DIR_NAME/example-app/Makefile
+cp linux-unix/Makefile.freebsd PcapPlusPlus/$DIST_DIR_NAME/example-app/Makefile
 
 # modify PcapPlusPlus.mk
 sed -i.bak "s|PCAPPLUSPLUS_HOME :=.*|PCAPPLUSPLUS_HOME := /PcapPlusPlus/Home/Dir|g" PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk && rm PcapPlusPlus/$DIST_DIR_NAME/mk/PcapPlusPlus.mk.bak
