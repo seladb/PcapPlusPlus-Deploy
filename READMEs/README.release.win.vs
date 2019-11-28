@@ -1,9 +1,7 @@
 
-PcapPlusPlus web-site:
-----------------------
-https://pcapplusplus.github.io/
+PcapPlusPlus web-site:  https://pcapplusplus.github.io/
 
-GitHub page: https://github.com/seladb/PcapPlusPlus
+GitHub page:            https://github.com/seladb/PcapPlusPlus
 
 
 This package contains:
@@ -27,6 +25,7 @@ This package contains:
 
 Running the examples:
 ---------------------
+
  - Make sure you have WinPcap (or Wireshark) installed
  - Make sure you have Visual C++ Redistributable for Visual Studio installed
  - If examples still doesn't run, install Visual C++ Redistributable for Visual Studio 2010 also
