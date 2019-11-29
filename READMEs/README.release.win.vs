@@ -13,13 +13,13 @@ This package contains:
     - Pcap++.lib
  - These libraries are compiled in 4 different configurations (each containing all libraries above):
     - 32bit debug configuration (`x86\Debug`)
-	- 32bit release configuration (`x86\Release`)
-	- 64bit debug configuration (`x64\Debug`)
-	- 64bit release configuration (`x64\Release`)
+    - 32bit release configuration (`x86\Release`)
+    - 64bit debug configuration (`x64\Debug`)
+    - 64bit release configuration (`x64\Release`)
  - PcapPlusPlus header files (under `header\`)
  - Compiled examples:
-   - 32bit executables (under `x86\examples`)
-	- 64bit executables (under `x64\examples`)
+    - 32bit executables (under `x86\examples`)
+    - 64bit executables (under `x64\examples`)
  - Visual Studio example solution configured to work with PcapPlusPlus compiled binaries (under `ExampleProject\`)
 
 
@@ -43,6 +43,10 @@ In order to compile your application with these binaries you need to:
 	 - Set the value of the `WinPcapHome` XML node to the folder where WinPcap Developer's Pack is located
 	 - Set the value of the `PThreadWin32Home` node to the folder where pthread-win32 is located
  - Now you can load the solution and build it. You can switch between Debug/Release and x86/x64 configurations
+ - If you get an error of `The Windows SDK version 8.1 is not found` follow these steps:
+    - Right click on `ExampleProject` project -> Choose "Properties"
+    - Go to "Configuration Properties" -> "General"
+    - Open the drop down list next to "Windows SDK version" and choose the version installed on your machine
  - Build result will be in `ExampleProject\Debug` or `ExampleProject\Release` (according to chosen configuration)
 
 
