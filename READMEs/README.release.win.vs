@@ -40,8 +40,8 @@ In order to compile your application with these binaries you need to:
    is to use the ExampleProject, delete all the code from it and start writing your own code
  - Before using the ExampleProject solution please make sure you update the PcapPlusPlusPropertySheet.props file (inside `ExampleProject\` folder) with the following:
     - Set the value of the `PcapPlusPlusHome` XML node to the folder where PcapPlusPlus binaries package is located (the one you downloaded)
-	 - Set the value of the `WinPcapHome` XML node to the folder where WinPcap Developer's Pack is located
-	 - Set the value of the `PThreadWin32Home` node to the folder where pthread-win32 is located
+    - Set the value of the `WinPcapHome` XML node to the folder where WinPcap Developer's Pack is located
+    - Set the value of the `PThreadWin32Home` node to the folder where pthread-win32 is located
  - Now you can load the solution and build it. You can switch between Debug/Release and x86/x64 configurations
  - If you get an error of `The Windows SDK version 8.1 is not found` follow these steps:
     - Right click on `ExampleProject` project -> Choose "Properties"
