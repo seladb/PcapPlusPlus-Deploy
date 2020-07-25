@@ -13,8 +13,8 @@ set config=Debug
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 call %DEPLOY_PROJ_DIR%\vs\clean.bat
 
@@ -26,8 +26,8 @@ set config=Debug
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 call %DEPLOY_PROJ_DIR%\vs\clean.bat
 
@@ -39,8 +39,8 @@ set config=Release
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 :: copy example binaries
 if not exist "%TARGET_DIR%\%platform%\examples" mkdir %TARGET_DIR%\%platform%\examples
@@ -56,8 +56,8 @@ set config=Release
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 :: copy example binaries
 if not exist "%TARGET_DIR%\%platform%\examples" mkdir %TARGET_DIR%\%platform%\examples
