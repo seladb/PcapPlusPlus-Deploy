@@ -8,39 +8,42 @@ set TARGET_DIR=%PACKAGE_DIR%\%TARGET_NAME%
 
 :: Build x86|Debug binaries
 set platform=x86
+set vs_platform=Win32
 set config=Debug
 
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 call %DEPLOY_PROJ_DIR%\vs\clean.bat
 
 
 :: Build x64|Debug binaries
 set platform=x64
+set vs_platform=x64
 set config=Debug
 
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 call %DEPLOY_PROJ_DIR%\vs\clean.bat
 
 
 :: Build x86|Release binaries
 set platform=x86
+set vs_platform=Win32
 set config=Release
 
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 :: copy example binaries
 if not exist "%TARGET_DIR%\%platform%\examples" mkdir %TARGET_DIR%\%platform%\examples
@@ -51,13 +54,14 @@ call %DEPLOY_PROJ_DIR%\vs\clean.bat
 
 :: Build x64|Release binaries
 set platform=x64
+set vs_platform=x64
 set config=Release
 
 call %DEPLOY_PROJ_DIR%\vs\build.bat
 
 if not exist "%TARGET_DIR%\%platform%\%config%" mkdir %TARGET_DIR%\%platform%\%config%
-xcopy Dist\%platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
-xcopy Dist\%platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.lib %TARGET_DIR%\%platform%\%config% /Y
+xcopy Dist\%vs_platform%\%config%\*.pdb %TARGET_DIR%\%platform%\%config% /Y
 
 :: copy example binaries
 if not exist "%TARGET_DIR%\%platform%\examples" mkdir %TARGET_DIR%\%platform%\examples
