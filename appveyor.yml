@@ -29,14 +29,14 @@ install:
   - if "%compiler%"=="mingw-w64" set PATH=%PATH%;C:\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin
   - if "%compiler:~0,4%"=="vs20" powershell -command "Invoke-WebRequest ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -OutFile pthreads-w32-2-9-1-release.zip" && 7z x pthreads-w32-2-9-1-release.zip -oC:\pthreads
   - "python -m pip install --upgrade pip"
-  - if "%compiler%"=="mingw32" python C:\projects\pcapplusplus-deploy\mingw32\patch_mingw.py
+  - if "%compiler%"=="mingw32" python mingw\patch_mingw.py
 
 before_build:
   - cd C:\projects
   - git clone https://github.com/seladb/PcapPlusPlus.git
   - cd C:\projects\PcapPlusPlus
   - if "%compiler%"=="mingw32" configure-windows-mingw.bat mingw32 -m C:\MinGW -w C:\WpdPack
-  - if "%compiler%"=="mingw-w64" configure-windows-mingw.bat mingw-w64 -m C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1 -w C:\WpdPack -s C:\msys64\mingw32
+  - if "%compiler%"=="mingw-w64" configure-windows-mingw.bat mingw-w64 -m C:\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0 -w C:\WpdPack -s C:\msys64\mingw32
 
 build_script:
   - if "%compiler%"=="mingw32" mingw32-make all
