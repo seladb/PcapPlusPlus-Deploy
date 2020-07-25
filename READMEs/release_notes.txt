@@ -1,4 +1,4 @@
-Release notes (changes from v19.04)
+Release notes (changes from v19.12)
 -----------------------------------
 
 TBD
