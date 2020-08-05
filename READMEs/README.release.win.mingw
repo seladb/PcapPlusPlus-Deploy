@@ -29,7 +29,7 @@ In order to compile your application with these binaries you need to:
  - Make sure you have MinGW32/MinGW-w64 installed with a gcc/g++ version matching the compiled binaries (for example: `pcapplusplus-20.08-windows-mingw32-gcc-9.2.0.zip` pack might not work well with MinGW32 5.3.0)
  - You may have to put MinGW32/MinGW-w64 directory in your `PATH` environment variable
  - Make sure you have WinPcap, Npcap or Wireshark installed
- - Make sure you have WinPcap or Npcap Developer's pack installed (WinPcap can be downloaded from https://www.winpcap.org/devel.htm, Npcap can be downloaded from https://nmap.org/npcap/#download)
+ - Make sure you have WinPcap or Npcap Developer's pack installed (WinPcap Dev Pack can be downloaded from https://www.winpcap.org/devel.htm, Npcap SDK can be downloaded from https://nmap.org/npcap/#download)
  - Update `mk\PcapPlusPlus.mk` file:
      - Set `PCAPPLUSPLUS_HOME` to the folder where binaries are located
      - Set `MINGW_HOME` to the folder where MinGW/MinGW-w64 is installed
