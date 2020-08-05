@@ -32,6 +32,7 @@ Release notes (changes from v19.12)
 - Added user link types 147-162 to support custom protocols (thank you @l-henken !)
 - Tons of bug fixes (thank you everyone who reported issues and contributed bugfixes!)
 
+
 Contributors
 ------------
 

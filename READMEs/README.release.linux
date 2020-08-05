@@ -34,8 +34,8 @@ In order to compile your application with these binaries you need to:
 ---------------------------------------------------------------------
 
  - Make sure you have libpcap developer pack installed (in Ubuntu: install it using apt-get: `sudo apt-get install libpcap-dev`)
- - Make sure the binaries match your OS (for example: `pcapplusplus-19.12-ubuntu-16.04-x86-64-gcc-4.8.tar.gz` pack may not work in Ubuntu 14.04)
- - Make sure your gcc/g++ version matches the compiled binaries version (for example: `pcapplusplus-19.12-ubuntu-16.04-x86-64-gcc-4.8.tar.gz` pack may not work with gcc 4.9)
+ - Make sure the binaries match your OS (for example: `pcapplusplus-20.08-ubuntu-20.04-gcc-9.tar.gz` pack may not work in Ubuntu 16.04)
+ - Make sure your gcc/g++ version matches the compiled binaries version (for example: `pcapplusplus-20.08-ubuntu-20.04-gcc-9.tar.gz` pack may not work with gcc 4.9)
  - Make sure PcapPlusPlus is installed (see Installation section above)
  - Include `/usr/local/etc/PcapPlusPlus.mk` in your Makefile and add PcapPlusPlus includes and libs in relevant places in your Makefile 
      - You may follow the example under `example-app/`

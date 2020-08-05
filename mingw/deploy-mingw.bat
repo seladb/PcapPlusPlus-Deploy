@@ -8,7 +8,7 @@ move %DIST_DIR_NAME%\mk\PcapPlusPlus.mk %DIST_DIR_NAME%\mk\temp.mk
 powershell -Command "(gc %DIST_DIR_NAME%\mk\temp.mk) -replace '/Dist', '' | Out-File %DIST_DIR_NAME%\mk\temp.mk"
 echo PCAPPLUSPLUS_HOME := Drive:/your/PcapPlusPlus/folder> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
 echo MINGW_HOME := Drive:/MinGW/folder>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
-echo WINPCAP_HOME := Drive:/WpdPack/folder>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
+echo PCAP_SDK_HOME := Drive:/WpdPack/folder>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
 more +8 %DIST_DIR_NAME%\mk\temp.mk>> %DIST_DIR_NAME%\mk\PcapPlusPlus.mk
 del %DIST_DIR_NAME%\mk\temp.mk
 

@@ -20,20 +20,20 @@ This package contains:
 Running the examples:
 ---------------------
 
- - Make sure you have WinPcap (or Wireshark) installed
+ - Make sure you have WinPcap, Npcap or Wireshark installed
 
 
 In order to compile your application with these binaries you need to:
 ---------------------------------------------------------------------
 
- - Make sure you have MinGW32/MinGW-w64 installed with a gcc/g++ version matching the compiled binaries (for example: `pcapplusplus-20.08-windows-mingw32-gcc-5.3.0.zip` pack might not work well with MinGW32 4.9.3)
+ - Make sure you have MinGW32/MinGW-w64 installed with a gcc/g++ version matching the compiled binaries (for example: `pcapplusplus-20.08-windows-mingw32-gcc-9.2.0.zip` pack might not work well with MinGW32 5.3.0)
  - You may have to put MinGW32/MinGW-w64 directory in your `PATH` environment variable
- - Make sure you have WinPcap (or Wireshark) installed
- - Make sure you have WinPcap Developer's pack installed (it can be downloaded from https://www.winpcap.org/devel.htm)
+ - Make sure you have WinPcap, Npcap or Wireshark installed
+ - Make sure you have WinPcap or Npcap Developer's pack installed (WinPcap can be downloaded from https://www.winpcap.org/devel.htm, Npcap can be downloaded from https://nmap.org/npcap/#download)
  - Update `mk\PcapPlusPlus.mk` file:
      - Set `PCAPPLUSPLUS_HOME` to the folder where binaries are located
      - Set `MINGW_HOME` to the folder where MinGW/MinGW-w64 is installed
-     - Set `WINPCAP_HOME` to the folder where WinPcap Developer's Pack is installed
+     - Set `PCAP_SDK_HOME` to the folder where WinPcap/Npcap Developer's Pack is installed
  - Include `mk\PcapPlusPlus.mk` in your Makefile and add PcapPlusPlus includes, libs, etc. to your Makefile 
      - You can follow the example under `example-app\`
 
