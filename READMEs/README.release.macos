@@ -34,7 +34,7 @@ In order to compile your application with these binaries you need to:
 ---------------------------------------------------------------------
 
  - Make sure you have libpcap developer pack installed (it should come with Xcode)
- - Make sure the binaries match your OS version (for example: `pcapplusplus-20.08-mac-os-10.14.4-xcode-11.2-gcc-4.2.1.tar.gz` pack may not work in MacOS 10.11)
+ - Make sure the binaries match your OS version (for example: `pcapplusplus-20.08-mac-os-10.14.6-xcode-11.3.1-gcc-4.2.1.tar.gz` pack may not work in MacOS 10.11)
  - Make sure PcapPlusPlus is installed (see Installation section above)
  - Include `/usr/local/etc/PcapPlusPlus.mk` in your Makefile and add PcapPlusPlus includes and libs in relevant places in your Makefile 
      - You may follow the example under `example-app/`
