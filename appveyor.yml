@@ -27,7 +27,7 @@ install:
   - 7z x .\WpdPack_4_1_2.zip -oc:\
   - if "%compiler%"=="mingw32" set PATH=%PATH%;C:\MinGW\bin&& 7z e C:\projects\pcapplusplus-deploy\Packages\pthreads-GC-w32-2.10-mingw32-pre-20160821-1-dev.tar.xz -oC:\pthreads && 7z x C:\pthreads\pthreads-GC-w32-2.10-mingw32-pre-20160821-1-dev.tar -oC:\pthreads && xcopy /Y C:\pthreads\include\* C:\MinGW\include && xcopy /Y C:\pthreads\lib\* C:\MinGW\lib
   - if "%compiler%"=="mingw-w64" set PATH=%PATH%;C:\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin
-  - if "%compiler:~0,4%"=="vs20" && 7z x C:\projects\pcapplusplus-deploy\Packages\pthreads-w32-2-9-1-release.zip -oC:\pthreads
+  - if "%compiler:~0,4%"=="vs20" 7z x C:\projects\pcapplusplus-deploy\Packages\pthreads-w32-2-9-1-release.zip -oC:\pthreads
   - "python -m pip install --upgrade pip"
   - if "%compiler%"=="mingw32" python mingw\patch_mingw.py
 
