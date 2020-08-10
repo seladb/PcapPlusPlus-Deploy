@@ -7,28 +7,28 @@ Release notes (changes from v19.12)
    - Added [LGTM](https://lgtm.com/projects/g/seladb/PcapPlusPlus) integration to enable continuous code analysis and prevent critical vulnerabilities (thank you @alexey-tereshenkov-oxb !)
    - More than 60 issues were found by OSS-Fuzz and LGTM and fixed in this release
    - Revamped Packet++Test and Pcap++Test: tests are now more structured, divided into multiple files and use common and more intuitive test infrastructure
-   - Added a new test suite (written in Python) to [PcapPlusPlus examples](https://github.com/seladb/PcapPlusPlus/tree/master/Examples) under [`Tests/ExamplesTests`](https://github.com/seladb/PcapPlusPlus/tree/master/Tests/ExamplesTest)
- - Added [Npcap](https://nmap.org/npcap/) support for Windows (in addition to legacy WinPcap support)
- - DPDK 19.11 (LTS) support
- - New platforms officially supported:
-   - MacOS Catalina (10.15)
-   - Ubuntu 20.04
+   - Added a new test suite (written in Python) for [PcapPlusPlus examples](https://github.com/seladb/PcapPlusPlus/tree/master/Examples) under [`Tests/ExamplesTests`](https://github.com/seladb/PcapPlusPlus/tree/master/Tests/ExamplesTest)
+ - Added [Npcap](https://nmap.org/npcap/) support for Windows (in parallel to WinPcap support)
+ - Added DPDK 19.11 (LTS) support
  - New supported protocols:
    - BGP v4
    - IEEE 802.3 Ethernet
- - Performance optimization, readability improvements and code cleanup in various parts of the code (thank you @maruu and @gx740 !)
- - A complete rewrite of the IP address classes `IPv4Address`, `IPv6Address` and `IPAddress` to make them more efficient and easier to use (thank you @gx740 !)
+ - New platforms officially supported:
+   - MacOS Catalina (10.15)
+   - Ubuntu 20.04
+ - A complete rewrite of the IP address classes `IPv4Address`, `IPv6Address` and `IPAddress` to make them more efficient and easy to use (thank you @gx740 !)
  - In addition, new features were added to IP address classes:
    - Added "less than" comparison operator (thank you @maruu !)
    - Added subnet match for `IPv6Address` (thank you @DinoStray !)
+ - Performance optimization, readability improvements and code cleanup in various parts of the code (thank you @maruu and @gx740 !)
  - Integrated streaming ZStd compression for pcapng files (thank you @Dysl3xik !)
  - Pcap/pcapng files:
    - Read and write in nanoseconds precision for pcapng files (thank you @akvinikym !)
    - Enable `flush` for pcap and pcapng file writers (thank you @rickyzhang82 and @l-henken !)
  - TCP reassembly returns status in every call to `TcpReassembly::reassemblePacket()` (thank you @starliiit !) 
- - Add port filter to HttpAnalyzer (thank you @makefriend8 !)
- - Support for setting snapshot length in PcapLiveDevice (thank you @wongsingfo !)
- - `GeneralFilter::matchPacketWithFilter()` can now match packet of any link layer (thank you @skorup101 !)
+ - Added port filter to `HttpAnalyzer` (thank you @makefriend8 !)
+ - Support for setting snapshot length in `PcapLiveDevice` (thank you @wongsingfo !)
+ - `GeneralFilter::matchPacketWithFilter()` can now match packet of any link type (thank you @skorup101 !)
  - Added user link types 147-162 to support custom protocols (thank you @l-henken !)
  - Tons of bug fixes (thank you everyone who reported issues and contributed bugfixes!)
 
