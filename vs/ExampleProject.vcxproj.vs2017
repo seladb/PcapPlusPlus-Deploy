@@ -75,29 +75,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(PcapPlusPlusHome)\header;$(WinPcapHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(PcapPlusPlusHome)\x86\Debug;$(PThreadWin32Home)\Pre-built.2\lib\x86;$(WinPcapHome)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(PcapPlusPlusHome)\header;$(PcapSdkHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(PcapPlusPlusHome)\x86\Debug;$(PThreadWin32Home)\Pre-built.2\lib\x86;$(PcapSdkHome)\Lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(PcapPlusPlusHome)\ExampleProject\Debug\x86</OutDir>
     <IntDir>$(PcapPlusPlusHome)\ExampleProject\Debug\x86</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(PcapPlusPlusHome)\header;$(WinPcapHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(PcapPlusPlusHome)\x64\Debug;$(PThreadWin32Home)\Pre-built.2\lib\x64;$(WinPcapHome)\Lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(PcapPlusPlusHome)\header;$(PcapSdkHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(PcapPlusPlusHome)\x64\Debug;$(PThreadWin32Home)\Pre-built.2\lib\x64;$(PcapSdkHome)\Lib\x64;$(LibraryPath)</LibraryPath>
     <OutDir>$(PcapPlusPlusHome)\ExampleProject\Debug\x64</OutDir>
     <IntDir>$(PcapPlusPlusHome)\ExampleProject\Debug\x64</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(PcapPlusPlusHome)\header;$(WinPcapHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(PcapPlusPlusHome)\x86\Release;$(PThreadWin32Home)\Pre-built.2\lib\x86;$(WinPcapHome)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(PcapPlusPlusHome)\header;$(PcapSdkHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(PcapPlusPlusHome)\x86\Release;$(PThreadWin32Home)\Pre-built.2\lib\x86;$(PcapSdkHome)\Lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(PcapPlusPlusHome)\ExampleProject\Release\x86</OutDir>
     <IntDir>$(PcapPlusPlusHome)\ExampleProject\Release\x86</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(PcapPlusPlusHome)\header;$(WinPcapHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(PcapPlusPlusHome)\x64\Release;$(PThreadWin32Home)\Pre-built.2\lib\x64;$(WinPcapHome)\Lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(PcapPlusPlusHome)\header;$(PcapSdkHome)\Include;$(PThreadWin32Home)\Pre-built.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(PcapPlusPlusHome)\x64\Release;$(PThreadWin32Home)\Pre-built.2\lib\x64;$(PcapSdkHome)\Lib\x64;$(LibraryPath)</LibraryPath>
     <OutDir>$(PcapPlusPlusHome)\ExampleProject\Release\x64</OutDir>
     <IntDir>$(PcapPlusPlusHome)\ExampleProject\Release\x64</IntDir>
   </PropertyGroup>

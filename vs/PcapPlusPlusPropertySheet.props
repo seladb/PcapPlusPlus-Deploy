@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <PcapPlusPlusHome>Drive:\your\PcapPlusPlus\folder</PcapPlusPlusHome>
-    <WinPcapHome>Drive:\WpdPack\folder</WinPcapHome>
+    <PcapSdkHome>Drive:\WpdPack\folder</PcapSdkHome>
     <PThreadWin32Home>Drive:\pthread-win32\folder</PThreadWin32Home>
   </PropertyGroup>
   <PropertyGroup />
