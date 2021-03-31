@@ -97,7 +97,7 @@ task:
   get_libpcap_script: git clone https://github.com/seladb/libpcap-android.git
   configure_script:
     - cd PcapPlusPlus
-    - ./configure-android.sh --ndk-path /opt/android-sdk-linux/ndk/${ANDROID_NDK_VERSION} --target ${TARGET} --api ${API} --libpcap-include-dir /libpcap-android/include --libpcap-lib-dir /libpcap-android/${TARGET}/${API}/
+    - ./configure-android.sh --ndk-path /opt/android-sdk-linux/ndk/${ANDROID_NDK_VERSION} --target ${TARGET} --api ${API} --libpcap-include-dir ../libpcap-android/include --libpcap-lib-dir ../libpcap-android/${TARGET}/${API}/
   build_script:
     - cd PcapPlusPlus
     - make libs
