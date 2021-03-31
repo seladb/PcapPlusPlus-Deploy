@@ -114,7 +114,10 @@ task:
   depends_on: build-android
   container:
     image: seladb/ubuntu2004:latest
-  deploy_script:
-    - cd /package
-    - ls -la
+  environment_cache:
+    folder: /package
+    fingerprint_script: echo $CIRRUS_BUILD_ID
+    populate_script:
+      - cd /package
+      - ls -la
 
