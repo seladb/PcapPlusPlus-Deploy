@@ -107,7 +107,7 @@ task:
     fingerprint_script: echo $CIRRUS_BUILD_ID
     populate_script:
       - mkdir -p /package/${TARGET}/${API}
-      - cp /PcapPlusPlus/Dist/lib*.a /package/${TARGET}/${API}
+      - cp PcapPlusPlus/Dist/lib*.a /package/${TARGET}/${API}
 
 task:
   name: android-deploy
