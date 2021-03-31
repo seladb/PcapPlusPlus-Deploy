@@ -62,3 +62,58 @@ task:
     - linux-unix/deploy-freebsd.sh
   deploy_package_artifacts:
     path: "package/*"
+    
+task:
+  name: build-android
+  env:
+    matrix:
+      - TARGET: arm64-v8a
+        API: 28
+      - TARGET: arm64-v8a
+        API: 29
+      - TARGET: arm64-v8a
+        API: 30
+      - TARGET: armeabi-v7a
+        API: 28
+      - TARGET: armeabi-v7a
+        API: 29
+      - TARGET: armeabi-v7a
+        API: 30
+      - TARGET: x86
+        API: 28
+      - TARGET: x86
+        API: 29
+      - TARGET: x86
+        API: 30
+      - TARGET: x86_64
+        API: 28
+      - TARGET: x86_64
+        API: 29
+      - TARGET: x86_64
+        API: 30
+  container:
+    image: cirrusci/android-sdk:30-ndk
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  get_libpcap_script: git clone https://github.com/seladb/libpcap-android.git
+  configure_script:
+    - cd PcapPlusPlus
+    - ./configure-android.sh --ndk-path /opt/android-sdk-linux/ndk/${ANDROID_NDK_VERSION} --target ${TARGET} --api ${API} --libpcap-include-dir /libpcap-android/include --libpcap-lib-dir /libpcap-android/${TARGET}/${API}/
+  build_script:
+    - cd PcapPlusPlus
+    - make libs
+  environment_cache:
+    folder: /package/${TARGET}/${API}
+    fingerprint_script: echo $CIRRUS_BUILD_ID
+    populate_script:
+      - mkdir -p /package/${TARGET}/${API}
+      - cp /PcapPlusPlus/Dist/lib*.a /package/${TARGET}/${API}
+
+task:
+  name: android-deploy
+  depends_on: build-android
+  container:
+    image: seladb/ubuntu2004:latest
+  deploy_script:
+    - cd /package
+    - ls -la
+
