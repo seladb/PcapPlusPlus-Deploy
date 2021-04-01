@@ -105,7 +105,7 @@ task:
   package_script:
       - mkdir -p package/${TARGET}/${API}
       - cp PcapPlusPlus/Dist/lib*.a package/${TARGET}/${API}
-  package_artifacts:
+  upload_package_artifacts:
     path: "package/**"
 
 task:
