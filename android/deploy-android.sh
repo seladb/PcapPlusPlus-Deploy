@@ -3,8 +3,9 @@ set -e # Exit with nonzero exit code if anything fails
 
 DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-android
 
-# download artifact
+# download artifact and unzip it
 wget https://api.cirrus-ci.com/v1/artifact/build/$CIRRUS_BUILD_ID/temp_package.zip
+unzip -o temp_package.zip
 
 # change artifact folder name
 mv package $DIST_DIR_NAME
