@@ -11,21 +11,17 @@ This package contains:
     - libCommon++.a
     - libPacket++.a
     - libPcap++.a
- - These libraries are compiled for the 4 different Android ABIs and API versions 28-30:
+ - These libraries are compiled for the 4 different Android ABIs and API versions 29-30:
     - arm64-v8a
-       |- 28
        |- 29
        |- 30
     - armeabi-v7a
-       |- 28
        |- 29
        |- 30
     - x86
-       |- 28
        |- 29
        |- 30
     - x86_64
-       |- 28
        |- 29
        |- 30
  - PcapPlusPlus header files (under `include/`)

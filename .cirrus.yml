@@ -68,25 +68,17 @@ task:
   env:
     matrix:
       - TARGET: arm64-v8a
-        API: 28
-      - TARGET: arm64-v8a
         API: 29
       - TARGET: arm64-v8a
         API: 30
       - TARGET: armeabi-v7a
-        API: 28
-      - TARGET: armeabi-v7a
         API: 29
       - TARGET: armeabi-v7a
         API: 30
       - TARGET: x86
-        API: 28
-      - TARGET: x86
         API: 29
       - TARGET: x86
         API: 30
-      - TARGET: x86_64
-        API: 28
       - TARGET: x86_64
         API: 29
       - TARGET: x86_64
