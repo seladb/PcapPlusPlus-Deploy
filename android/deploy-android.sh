@@ -5,7 +5,7 @@ DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-android
 
 # download artifact and unzip it
 wget https://api.cirrus-ci.com/v1/artifact/build/$CIRRUS_BUILD_ID/temp_package.zip
-sudo apt-get install unzip
+apt-get install unzip
 unzip -o temp_package.zip
 
 # change artifact folder name

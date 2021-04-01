@@ -115,9 +115,9 @@ task:
   container:
     image: seladb/ubuntu2004:latest
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  my_script:
+  package_script:
     android/deploy-android.sh
-  android_package_artifacts:
+  package_android_artifacts:
     path: "final_package/*"
 
 
