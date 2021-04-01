@@ -103,23 +103,23 @@ task:
     - cd PcapPlusPlus
     - make libs
   environment_cache:
-    folder: /package/${TARGET}/${API}
+    folder: /package-${TARGET}-${API}
     fingerprint_script: echo $CIRRUS_BUILD_ID
     populate_script:
-      - mkdir -p /package/${TARGET}/${API}
-      - cp PcapPlusPlus/Dist/lib*.a /package/${TARGET}/${API}
+      - mkdir -p /package-${TARGET}-${API}
+      - cp PcapPlusPlus/Dist/lib*.a /package-${TARGET}-${API}
 
 task:
   name: android-deploy
   depends_on: build-android
   container:
     image: seladb/ubuntu2004:latest
+  environment_cache:
+    folder: /package-arm64-v8a-28
+    fingerprint_script: echo $CIRRUS_BUILD_ID
+  environment_cache:
+    folder: /package-arm64-v8a-29
+    fingerprint_script: echo $CIRRUS_BUILD_ID
   my_script:
-    ls -laR /package
-  # environment_cache:
-  #   folder: /package
-  #   fingerprint_script: echo $CIRRUS_BUILD_ID
-  #   populate_script:
-  #     - cd /package
-  #     - ls -la
-
+    ls -la /package-arm64-v8a-28
+    ls -la /package-arm64-v8a-29
