@@ -105,7 +105,8 @@ task:
   package_script:
       - mkdir -p package/${TARGET}/${API}
       - cp PcapPlusPlus/Dist/lib*.a package/${TARGET}/${API}
-  upload_package_artifacts:
+      - cp -r PcapPlusPlus/Dist/header package/include/
+  temp_package_artifacts:
     path: "package/**"
 
 task:
@@ -113,5 +114,10 @@ task:
   depends_on: build-android
   container:
     image: seladb/ubuntu2004:latest
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   my_script:
-    wget https://api.cirrus-ci.com/v1/artifact/build/$CIRRUS_BUILD_ID/package.zip
+    android/deploy-android.sh
+  android_package_artifacts:
+    path: "final_package/*"
+
+
