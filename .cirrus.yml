@@ -1,67 +1,67 @@
-task:
-  name: package-linux
-  env:
-    matrix:
-      - IMAGE_NAME: ubuntu1604
-        OS_VER: ubuntu-16.04
-      - IMAGE_NAME: ubuntu1804
-        OS_VER: ubuntu-18.04
-      - IMAGE_NAME: ubuntu2004
-        OS_VER: ubuntu-20.04
-      - IMAGE_NAME: centos7
-        OS_VER: centos-7
-      - IMAGE_NAME: fedora29
-        OS_VER: fedora-29
-  container:
-    image: seladb/${IMAGE_NAME}:latest
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  configure_script:
-    - cd PcapPlusPlus
-    - ./configure-linux.sh --default
-  build_script: 
-    - cd PcapPlusPlus
-    - make all
-  test_script:
-    - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
-    - cd ../Pcap++Test && Bin/Pcap++Test -n
-  package_script:
-    - linux-unix/deploy-linux.sh
-  deploy_package_artifacts:
-    path: "package/*"
+# task:
+#   name: package-linux
+#   env:
+#     matrix:
+#       - IMAGE_NAME: ubuntu1604
+#         OS_VER: ubuntu-16.04
+#       - IMAGE_NAME: ubuntu1804
+#         OS_VER: ubuntu-18.04
+#       - IMAGE_NAME: ubuntu2004
+#         OS_VER: ubuntu-20.04
+#       - IMAGE_NAME: centos7
+#         OS_VER: centos-7
+#       - IMAGE_NAME: fedora29
+#         OS_VER: fedora-29
+#   container:
+#     image: seladb/${IMAGE_NAME}:latest
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   configure_script:
+#     - cd PcapPlusPlus
+#     - ./configure-linux.sh --default
+#   build_script: 
+#     - cd PcapPlusPlus
+#     - make all
+#   test_script:
+#     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
+#     - cd ../Pcap++Test && Bin/Pcap++Test -n
+#   package_script:
+#     - linux-unix/deploy-linux.sh
+#   deploy_package_artifacts:
+#     path: "package/*"
 
-task:
-  name: package-source
-  container:
-    image: seladb/ubuntu1804:latest  
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  install_script:
-    - apt-get -y install rsync
-  package_script:
-    - source-linux/deploy-source.sh
-  deploy_package_artifacts:
-    path: "package/*"
+# task:
+#   name: package-source
+#   container:
+#     image: seladb/ubuntu1804:latest  
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   install_script:
+#     - apt-get -y install rsync
+#   package_script:
+#     - source-linux/deploy-source.sh
+#   deploy_package_artifacts:
+#     path: "package/*"
 
-task:
-  name: package-freebsd
-  freebsd_instance:
-    matrix:
-      image_family: freebsd-11-3-snap
-      image_family: freebsd-12-1-snap
-  install_script: pkg install -y git libpcap bash gsed gmake        
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  configure_script:
-    - cd PcapPlusPlus
-    - ./configure-freebsd.sh --default
-  build_script:
-    - cd PcapPlusPlus
-    - gmake all
-  test_script:
-    - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
-    - cd ../Pcap++Test && Bin/Pcap++Test -n
-  package_script:
-    - linux-unix/deploy-freebsd.sh
-  deploy_package_artifacts:
-    path: "package/*"
+# task:
+#   name: package-freebsd
+#   freebsd_instance:
+#     matrix:
+#       image_family: freebsd-11-3-snap
+#       image_family: freebsd-12-1-snap
+#   install_script: pkg install -y git libpcap bash gsed gmake        
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   configure_script:
+#     - cd PcapPlusPlus
+#     - ./configure-freebsd.sh --default
+#   build_script:
+#     - cd PcapPlusPlus
+#     - gmake all
+#   test_script:
+#     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
+#     - cd ../Pcap++Test && Bin/Pcap++Test -n
+#   package_script:
+#     - linux-unix/deploy-freebsd.sh
+#   deploy_package_artifacts:
+#     path: "package/*"
     
 task:
   name: build-android
@@ -71,26 +71,26 @@ task:
         API: 28
       - TARGET: arm64-v8a
         API: 29
-      - TARGET: arm64-v8a
-        API: 30
-      - TARGET: armeabi-v7a
-        API: 28
-      - TARGET: armeabi-v7a
-        API: 29
-      - TARGET: armeabi-v7a
-        API: 30
-      - TARGET: x86
-        API: 28
-      - TARGET: x86
-        API: 29
-      - TARGET: x86
-        API: 30
-      - TARGET: x86_64
-        API: 28
-      - TARGET: x86_64
-        API: 29
-      - TARGET: x86_64
-        API: 30
+      # - TARGET: arm64-v8a
+      #   API: 30
+      # - TARGET: armeabi-v7a
+      #   API: 28
+      # - TARGET: armeabi-v7a
+      #   API: 29
+      # - TARGET: armeabi-v7a
+      #   API: 30
+      # - TARGET: x86
+      #   API: 28
+      # - TARGET: x86
+      #   API: 29
+      # - TARGET: x86
+      #   API: 30
+      # - TARGET: x86_64
+      #   API: 28
+      # - TARGET: x86_64
+      #   API: 29
+      # - TARGET: x86_64
+      #   API: 30
   container:
     image: cirrusci/android-sdk:30-ndk
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
@@ -114,10 +114,12 @@ task:
   depends_on: build-android
   container:
     image: seladb/ubuntu2004:latest
-  environment_cache:
-    folder: /package
-    fingerprint_script: echo $CIRRUS_BUILD_ID
-    populate_script:
-      - cd /package
-      - ls -la
+  my_script:
+    ls -laR /package
+  # environment_cache:
+  #   folder: /package
+  #   fingerprint_script: echo $CIRRUS_BUILD_ID
+  #   populate_script:
+  #     - cd /package
+  #     - ls -la
 
