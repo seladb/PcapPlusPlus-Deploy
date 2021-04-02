@@ -68,27 +68,11 @@ task:
   env:
     matrix:
       - TARGET: arm64-v8a
-        API: 28
-      - TARGET: arm64-v8a
-        API: 29
-      - TARGET: arm64-v8a
         API: 30
-      - TARGET: armeabi-v7a
-        API: 28
-      - TARGET: armeabi-v7a
-        API: 29
       - TARGET: armeabi-v7a
         API: 30
       - TARGET: x86
-        API: 28
-      - TARGET: x86
-        API: 29
-      - TARGET: x86
         API: 30
-      - TARGET: x86_64
-        API: 28
-      - TARGET: x86_64
-        API: 29
       - TARGET: x86_64
         API: 30
   container:
@@ -102,22 +86,27 @@ task:
   build_script:
     - cd PcapPlusPlus
     - make libs
-  environment_cache:
-    folder: /package/${TARGET}/${API}
-    fingerprint_script: echo $CIRRUS_BUILD_ID
-    populate_script:
-      - mkdir -p /package/${TARGET}/${API}
-      - cp PcapPlusPlus/Dist/lib*.a /package/${TARGET}/${API}
+  package_script:
+      - mkdir -p package/${TARGET}/${API}
+      - cp PcapPlusPlus/Dist/lib*.a package/${TARGET}/${API}
+  temp_package_artifacts:
+    path: "package/**"
 
 task:
   name: android-deploy
   depends_on: build-android
   container:
     image: seladb/ubuntu2004:latest
-  environment_cache:
-    folder: /package
-    fingerprint_script: echo $CIRRUS_BUILD_ID
-    populate_script:
-      - cd /package
-      - ls -la
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  configure_script:
+    - cd PcapPlusPlus
+    - ./configure-linux.sh --default
+  build_script:
+    - cd PcapPlusPlus
+    - make libs
+  package_script:
+    android/deploy-android.sh
+  package_android_artifacts:
+    path: "final_package/*"
+
 
