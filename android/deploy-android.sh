@@ -11,6 +11,9 @@ unzip -o temp_package.zip
 # change artifact folder name
 mv package $DIST_DIR_NAME
 
+# copy header files
+cp -r PcapPlusPlus/Dist/header $DIST_DIR_NAME/include/
+
 # create README.release
 cp READMEs/README.release.header $DIST_DIR_NAME/README.release
 tee -a $DIST_DIR_NAME/README.release < READMEs/README.release.android

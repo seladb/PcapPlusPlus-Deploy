@@ -97,7 +97,6 @@ task:
   package_script:
       - mkdir -p package/${TARGET}/${API}
       - cp PcapPlusPlus/Dist/lib*.a package/${TARGET}/${API}
-      - cp -r PcapPlusPlus/Dist/header package/include/
   temp_package_artifacts:
     path: "package/**"
 
@@ -107,6 +106,11 @@ task:
   container:
     image: seladb/ubuntu2004:latest
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  configure_script:
+    - cd PcapPlusPlus
+    - ./configure-linux.sh --default
+  build_script:
+    - make libs
   package_script:
     android/deploy-android.sh
   package_android_artifacts:
