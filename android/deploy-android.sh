@@ -3,16 +3,20 @@ set -e # Exit with nonzero exit code if anything fails
 
 DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-android
 
-# download artifact and unzip it
-wget https://api.cirrus-ci.com/v1/artifact/build/$CIRRUS_BUILD_ID/temp_package.zip
+# download artifacts and unzip it
 apt-get install unzip
+
+wget https://api.cirrus-ci.com/v1/artifact/build/$CIRRUS_BUILD_ID/temp_package.zip
 unzip -o temp_package.zip
+
+wget https://api.cirrus-ci.com/v1/artifact/build/$CIRRUS_BUILD_ID/include.zip
+unzip -o include.zip
 
 # change artifact folder name
 mv package $DIST_DIR_NAME
 
 # copy header files
-cp -r PcapPlusPlus/Dist/header $DIST_DIR_NAME/include/
+cp -r include $DIST_DIR_NAME/include/
 
 # create README.release
 cp READMEs/README.release.header $DIST_DIR_NAME/README.release
