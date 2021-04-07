@@ -12,4 +12,4 @@ Uses:
 
 - [Travis-CI](https://travis-ci.org/seladb/PcapPlusPlus-Deploy) for MacOS packaging
 - [AppVeyor](https://ci.appveyor.com/project/seladb/pcapplusplus-deploy) for Windows packaging
-- [Cirrus CI](https://cirrus-ci.com/github/seladb/PcapPlusPlus-Deploy) for Linux and FreeBSD packaging
+- [Cirrus CI](https://cirrus-ci.com/github/seladb/PcapPlusPlus-Deploy) for Linux, Android and FreeBSD packaging
