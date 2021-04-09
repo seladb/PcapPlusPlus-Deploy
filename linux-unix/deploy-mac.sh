@@ -1,8 +1,12 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-XCODE_VER=$($(xcode-select -print-path)/usr/bin/xcodebuild -version | head -n1 | awk '{print $2}')
-OS_VER=mac-os-$(sw_vers -productVersion)-xcode-$XCODE_VER
+if [ "$1" == "--arm64" ]; then
+    OS_VER=mac-os-$(sw_vers -productVersion)-apple-silicon
+else
+    XCODE_VER=$($(xcode-select -print-path)/usr/bin/xcodebuild -version | head -n1 | awk '{print $2}')
+    OS_VER=mac-os-$(sw_vers -productVersion)-xcode-$XCODE_VER
+fi
 
 g++ -dumpversion > gcc.version
 DIST_DIR_NAME=pcapplusplus-$(cat misc/latest_release.version)-$OS_VER-gcc-$(cat gcc.version)
