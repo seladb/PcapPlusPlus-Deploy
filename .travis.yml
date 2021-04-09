@@ -12,13 +12,7 @@ matrix:
       osx_image: xcode8
     - os: osx
       compiler: clang
-      osx_image: xcode8.3
-    - os: osx
-      compiler: clang
       osx_image: xcode9.2
-    - os: osx
-      compiler: clang
-      osx_image: xcode9.3
     - os: osx
       compiler: clang
       osx_image: xcode10.1
@@ -44,7 +38,6 @@ script:
   - make all
   - cd Tests/Packet++Test && Bin/Packet++Test
   - cd ../Pcap++Test && sudo Bin/Pcap++Test -n
-  - cd ../../Dist && ls -la
   - cd ../../../ && g++ -dumpversion > gcc.version
   - linux-unix/deploy-mac.sh $ARM64
 
