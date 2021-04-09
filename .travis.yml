@@ -37,7 +37,7 @@ before_script:
 script:
   - make all
   - if [ -z "$ARM64" ]; then cd Tests/Packet++Test && Bin/Packet++Test; fi
-  - if [ -z "$ARM64" ]; then cd Tests/Pcap++Test && sudo Bin/Pcap++Test -n; fi
+  - if [ -z "$ARM64" ]; then cd ../Pcap++Test && sudo Bin/Pcap++Test -n && cd ../../; fi
   - cd ../ && g++ -dumpversion > gcc.version
   - linux-unix/deploy-mac.sh $ARM64
 
