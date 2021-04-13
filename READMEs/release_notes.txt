@@ -1,36 +1,37 @@
-Release notes (changes from v19.12)
+Release notes (changes from v20.08)
 -----------------------------------
 
- - Major security and quality improvements:
-   - PcapPlusPlus was added to [Google OSS-Fuzz](https://google.github.io/oss-fuzz/) which uses the [Fuzz testing](https://en.wikipedia.org/wiki/Fuzzing) technique to discover security vulnerabilities and stability bugs (thank you @zlowram !)
-   - Created a new regression test suite for OSS-Fuzz bugfixes under [`Tests/Fuzzers/RegressionTests`](https://github.com/seladb/PcapPlusPlus/tree/master/Tests/Fuzzers/RegressionTests) (thank you @zlowram !)
-   - Added [LGTM](https://lgtm.com/projects/g/seladb/PcapPlusPlus) integration to enable continuous code analysis and prevent critical vulnerabilities (thank you @alexey-tereshenkov-oxb !)
-   - More than 60 issues were found by OSS-Fuzz and LGTM and fixed in this release
-   - Revamped Packet++Test and Pcap++Test: tests are now more structured, divided into multiple files and use common and more intuitive test infrastructure
-   - Added a new test suite (written in Python) for [PcapPlusPlus examples](https://github.com/seladb/PcapPlusPlus/tree/master/Examples) under [`Tests/ExamplesTests`](https://github.com/seladb/PcapPlusPlus/tree/master/Tests/ExamplesTest)
- - Added [Npcap](https://nmap.org/npcap/) support for Windows (in parallel to WinPcap support)
- - Added DPDK 19.11 (LTS) support
- - New supported protocols:
-   - BGP v4
-   - IEEE 802.3 Ethernet
- - New platforms officially supported:
-   - MacOS Catalina (10.15)
-   - Ubuntu 20.04
- - A complete rewrite of the IP address classes `IPv4Address`, `IPv6Address` and `IPAddress` to make them more efficient and easy to use (thank you @gx740 !)
- - In addition, new features were added to IP address classes:
-   - Added "less than" comparison operator (thank you @maruu !)
-   - Added subnet match for `IPv6Address` (thank you @DinoStray !)
- - Performance optimization, readability improvements and code cleanup in various parts of the code (thank you @maruu and @gx740 !)
- - Integrated streaming ZStd compression for pcapng files (thank you @Dysl3xik !)
- - Pcap/pcapng files:
-   - Read and write in nanoseconds precision for pcapng files (thank you @akvinikym !)
-   - Enable `flush` for pcap and pcapng file writers (thank you @rickyzhang82 and @l-henken !)
- - TCP reassembly returns status in every call to `TcpReassembly::reassemblePacket()` (thank you @starliiit !) 
- - Added port filter to `HttpAnalyzer` (thank you @makefriend8 !)
- - Support for setting snapshot length in `PcapLiveDevice` (thank you @wongsingfo !)
- - `GeneralFilter::matchPacketWithFilter()` can now match packet of any link type (thank you @skorup101 !)
- - Added user link types 147-162 to support custom protocols (thank you @l-henken !)
- - Tons of bug fixes (thank you everyone who reported issues and contributed bugfixes!)
+- Added official [Android support](https://pcapplusplus.github.io/docs/quickstart/android)!
+- [TLS fingerprinting](https://pcapplusplus.github.io/docs/features#tls-fingerprinting) based on [JA3](https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967)
+  - Extract TLS fingerprints from TLS ClientHello and ServerHello packets
+  - TLS fingerprinting [example app](https://pcapplusplus.github.io/docs/examples#tlsfingerprinting)
+- TLS 1.3 support
+- A brand new [DPDK setup script](https://pcapplusplus.github.io/docs/dpdk#initialization-before-application-is-run) written in Python that makes it easier to setup DPDK
+- Apple silicon M1 support (thanks @szigetics !)
+- Significant size reduction of PcapPlusPlus compiled libraries
+- Calculate a packet's network data size before sending a packet and make sure it doesn't exceed the MTU (thanks @SamuelBailey !)
+- UDP multicast support (thanks @mmizi !)
+  - Add `isMulticast()` property to `IPAddress`, `IPv4Address`, `IPv6Address`
+  - PcapSplitter: take into consideration multicast packets when splitting by client/server IP/port 
+- New protocol support:
+  - SSH (parsing only)
+  - IP Sec (AH + ESP, parsing only)
+- Existing protocol enhancement:
+  - DNS over TCP
+  - Parse 2 new TLS extensions: Supported Groups and EC Point Format
+  - Added a new `IPLayer` interface to abstract `IPv4Layer` and `IPv6Layer`
+  - Added convenient methods to fetch source and dest ports in TCP and UDP layers
+  - GRE layer - add Transparent Ethernet Bridging support (thanks @justin-parus !)
+- Major header files cleanup: remove platform-specific includes, remove `pcap.h` from PcapPlusPlus includes, remove redundant header files, replace c-str arguments with C++ `std::string`
+- New API method to search `PcapLiveDevice` [by IP address or name](https://pcapplusplus.github.io/api-docs/classpcpp_1_1_pcap_live_device_list.html#aadf609084e161df94c14109d42b94544)
+- Parse packets with link type of `LINKTYPE_IPV4` and `LINKTYPE_IPV6` (thanks @miketruman !)
+- TCP reassembly
+  - Add configurable out-of-order packets per flow limit (thanks @LeonBuikstraFox !)
+  - Expose missing bytes size on data loss (thanks @cryptocode !)
+- `hash5Tuple` improvements (thanks @miketruman !)
+- Fix Makefile dependencies - detect when header files are changed (thanks @amirgon !)
+- Moved a large portion of PcapPlusPlus CI to GitHub Actions
+- Tons of bug fixes (thank you to everyone who reported issues and contributed bugfixes!)
 
 
 Contributors
@@ -38,22 +39,19 @@ Contributors
 
 Thank you for everyone who contributed to this release:
 
- - @gx740 
- - @Dysl3xik 
- - @maruu 
- - @zlowram 
- - @akvinikym
- - @alexey-tereshenkov-oxb 
- - @rickyzhang82 
- - @DinoStray 
- - @l-henken 
- - @skorup101 
- - @starliiit 
- - @NanXiao 
- - @makefriend8
- - @v0l0dia
- - @wongsingfo 
- - @mchuahua
- - @NinethDimension
- - @OrkunTokdemir
- - @fquinner
+- @mmizi
+- @github-euronext 
+- @szigetics 
+- @SamuelBailey 
+- @nickamon 
+- @skorup101 
+- @amirgon 
+- @cartman-156 
+- amritanshu.johri
+- @weyrick
+- @justin-parus 
+- @LeonBuikstraFox 
+- @miketruman 
+- Julian Härig
+- @cryptocode 
+- @ramazantokay 
