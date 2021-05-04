@@ -30,6 +30,7 @@ Release notes (changes from v20.08)
   - Expose missing bytes size on data loss (thanks @cryptocode !)
 - `hash5Tuple` improvements (thanks @miketruman !)
 - Fix Makefile dependencies - detect when header files are changed (thanks @amirgon !)
+- Recognize `*.zstd` file extension in `IFileReaderDevice::getReader()` (thanks @naugler !)
 - Moved a large portion of PcapPlusPlus CI to GitHub Actions
 - Tons of bug fixes (thank you to everyone who reported issues and contributed bugfixes!)
 

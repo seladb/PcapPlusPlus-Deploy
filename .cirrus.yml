@@ -45,9 +45,9 @@ task:
   name: package-freebsd
   freebsd_instance:
     matrix:
-      image_family: freebsd-11-3-snap
-      image_family: freebsd-12-1-snap
-  install_script: pkg install -y git libpcap bash gsed gmake        
+      image_family: freebsd-11-4
+      image_family: freebsd-12-2
+  install_script: pkg install -y git libpcap bash gsed gmake
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   configure_script:
     - cd PcapPlusPlus
