@@ -41,18 +41,19 @@ Contributors
 Thank you for everyone who contributed to this release:
 
 - @mmizi
-- @github-euronext 
-- @szigetics 
-- @SamuelBailey 
-- @nickamon 
-- @skorup101 
-- @amirgon 
-- @cartman-156 
+- @github-euronext
+- @szigetics
+- @SamuelBailey
+- @nickamon
+- @naugler
+- @skorup101
+- @amirgon
+- @cartman-156
 - amritanshu.johri
 - @weyrick
-- @justin-parus 
-- @LeonBuikstraFox 
-- @miketruman 
+- @justin-parus
+- @LeonBuikstraFox
+- @miketruman
 - Julian Härig
-- @cryptocode 
-- @ramazantokay 
+- @cryptocode
+- @ramazantokay
