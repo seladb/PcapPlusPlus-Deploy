@@ -48,7 +48,7 @@ Running PcapPlusPlus examples:
  - All examples are in `/usr/local/bin` and also in `PcapPlusPlus/Dist/examples`
  - Make sure you have libpcap installed (should come built-in with most Linux distributions)
  - In Linux you may need to run the executables as `sudo`
- - When installing the package with DPDK, please run `PcapPlusPlus/setup_dpdk.py` before running the DPDK examples (see more details here: https://pcapplusplus.github.io/docs/dpdk#initialization-before-application-is-run)
+ - When installing the package with DPDK, please run `sudo python PcapPlusPlus/setup_dpdk.py` before running the DPDK examples (see more details here: https://pcapplusplus.github.io/docs/dpdk#initialization-before-application-is-run)
 
 
 In order to compile your application with these binaries you need to:
