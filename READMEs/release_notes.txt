@@ -55,5 +55,6 @@ Thank you for everyone who contributed to this release:
 - @LeonBuikstraFox
 - @miketruman
 - Julian Härig
+- @clementperon
 - @cryptocode
 - @ramazantokay
