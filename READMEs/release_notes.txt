@@ -1,60 +1,39 @@
-Release notes (changes from v20.08)
+Release notes (changes from v21.05)
 -----------------------------------
 
-- Added official [Android support](https://pcapplusplus.github.io/docs/quickstart/android)!
-- [TLS fingerprinting](https://pcapplusplus.github.io/docs/features#tls-fingerprinting) based on [JA3](https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967)
-  - Extract TLS fingerprints from TLS ClientHello and ServerHello packets
-  - TLS fingerprinting [example app](https://pcapplusplus.github.io/docs/examples#tlsfingerprinting)
-- TLS 1.3 support
-- A brand new [DPDK setup script](https://pcapplusplus.github.io/docs/dpdk#initialization-before-application-is-run) written in Python that makes it easier to setup DPDK
-- Apple silicon M1 support (thanks @szigetics !)
-- Significant size reduction of PcapPlusPlus compiled libraries
-- Calculate a packet's network data size before sending a packet and make sure it doesn't exceed the MTU (thanks @SamuelBailey !)
-- UDP multicast support (thanks @mmizi !)
-  - Add `isMulticast()` property to `IPAddress`, `IPv4Address`, `IPv6Address`
-  - PcapSplitter: take into consideration multicast packets when splitting by client/server IP/port 
-- New protocol support:
-  - SSH (parsing only)
-  - IP Sec (AH + ESP, parsing only)
-- Existing protocol enhancement:
-  - DNS over TCP
-  - Parse 2 new TLS extensions: Supported Groups and EC Point Format
-  - Added a new `IPLayer` interface to abstract `IPv4Layer` and `IPv6Layer`
-  - Added convenient methods to fetch source and dest ports in TCP and UDP layers
-  - GRE layer - add Transparent Ethernet Bridging support (thanks @justin-parus !)
-- Major header files cleanup: remove platform-specific includes, remove `pcap.h` from PcapPlusPlus includes, remove redundant header files, replace c-str arguments with C++ `std::string`
-- New API method to search `PcapLiveDevice` [by IP address or name](https://pcapplusplus.github.io/api-docs/classpcpp_1_1_pcap_live_device_list.html#aadf609084e161df94c14109d42b94544)
-- Parse packets with link type of `LINKTYPE_IPV4` and `LINKTYPE_IPV6` (thanks @miketruman !)
-- TCP reassembly
-  - Add configurable out-of-order packets per flow limit (thanks @LeonBuikstraFox !)
-  - Expose missing bytes size on data loss (thanks @cryptocode !)
-- `hash5Tuple` improvements (thanks @miketruman !)
-- Fix Makefile dependencies - detect when header files are changed (thanks @amirgon !)
-- Recognize `*.zstd` file extension in `IFileReaderDevice::getReader()` (thanks @naugler !)
-- Moved a large portion of PcapPlusPlus CI to GitHub Actions
-- Tons of bug fixes (thank you to everyone who reported issues and contributed bugfixes!)
+* DPDK 20.11 support
+* Support `uio_pci_generic` and `vfio-pci` kernel modules in DPDK setup script
+* Add the stream operator `<<` to IP address and MAC address classes 
+* Add the stream operator `<<` to `Packet` and `Layer`  
+* Add DHCPv6 protocol support
+* Get the full timestamp resolution from a standard pcap file (thanks @ian-p-cooke!)
+* Add a new `Packet` constructor that uses a pre-allocated buffer
+* Add src/dst IP address setters in IPv6 layer (thanks @jafar75!)
+* Add [`musl`](https://en.wikipedia.org/wiki/Musl) support (thanks @adubovikov!)
+* Support loopback interface in `PfRingDeviceList`
+* Modernize PcapPlusPlus examples and tutorials
+* Add IPv6 support in DNS Spoofing example 
+* Convert `TLVRecord` to a templated class that can represent records with any type and length size
+* Convert PPPoE tags to use the TLV infrastructure
+* Modernize PcapPlusPlus test infrastructure:
+  * Simplify `string` and `object` asserts
+  * Replace `printf` with `std::cout`
+* Refactor and modernize PcapPlusPlus logger 
+* Implement `VlanLayet::computeCalculateFields()` to calculate the next EtherType
+* Parse the 802.1ad QinQ EtherType as `VlanLayer`
+* Replace c-style string copy (`sprintf`) with cpp-style string copy using `sstreams`
+* Tons of bug fixes (thanks @clementperon, @slhck, @bbenne10!)
 
 
 Contributors
 ------------
 
-Thank you for everyone who contributed to this release:
+Big thank you for everyone who contributed to this release:
+* @clementperon
+* @jafar75 
+* @slhck 
+* @adubovikov 
+* @ian-p-cooke
+* @bbenne10 
 
-- @mmizi
-- @github-euronext
-- @szigetics
-- @SamuelBailey
-- @nickamon
-- @naugler
-- @skorup101
-- @amirgon
-- @cartman-156
-- amritanshu.johri
-- @weyrick
-- @justin-parus
-- @LeonBuikstraFox
-- @miketruman
-- Julian Härig
-- @clementperon
-- @cryptocode
-- @ramazantokay
+**Full Changelog**: https://github.com/seladb/PcapPlusPlus/compare/v21.05...v21.11
