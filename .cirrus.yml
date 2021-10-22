@@ -10,8 +10,9 @@ task:
         OS_VER: ubuntu-20.04
       - IMAGE_NAME: centos7
         OS_VER: centos-7
-      - IMAGE_NAME: fedora29
-        OS_VER: fedora-29
+        TEST_FLAGS: -s
+      - IMAGE_NAME: fedora34
+        OS_VER: fedora-34
   container:
     image: seladb/${IMAGE_NAME}:latest
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
@@ -23,7 +24,7 @@ task:
     - make all
   test_script:
     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
-    - cd ../Pcap++Test && Bin/Pcap++Test -n
+    - cd ../Pcap++Test && Bin/Pcap++Test -n ${TEST_FLAGS}
   package_script:
     - linux-unix/deploy-linux.sh
   deploy_package_artifacts:
