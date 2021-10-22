@@ -23,7 +23,7 @@ task:
     - cd PcapPlusPlus
     - make all
   test_script:
-    - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
+    - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test ${TEST_FLAGS}
     - cd ../Pcap++Test && Bin/Pcap++Test -n ${TEST_FLAGS}
   package_script:
     - linux-unix/deploy-linux.sh
