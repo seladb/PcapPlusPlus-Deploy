@@ -24,16 +24,17 @@ Release notes (changes from v21.05)
 * Replace c-style string copy (`sprintf`) with cpp-style string copy using `sstreams`
 * Tons of bug fixes (thanks @clementperon, @slhck, @bbenne10!)
 
+Full Changelog: https://github.com/seladb/PcapPlusPlus/compare/v21.05...v21.11
+
 
 Contributors
 ------------
 
 Big thank you for everyone who contributed to this release:
+
 * @clementperon
 * @jafar75 
 * @slhck 
 * @adubovikov 
 * @ian-p-cooke
 * @bbenne10 
-
-**Full Changelog**: https://github.com/seladb/PcapPlusPlus/compare/v21.05...v21.11
