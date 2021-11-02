@@ -1,28 +1,28 @@
 Release notes (changes from v21.05)
 -----------------------------------
 
-* DPDK 20.11 support
-* Support `uio_pci_generic` and `vfio-pci` kernel modules in DPDK setup script
-* Add the stream operator `<<` to IP address and MAC address classes 
-* Add the stream operator `<<` to `Packet` and `Layer`  
-* Add DHCPv6 protocol support
-* Get the full timestamp resolution from a standard pcap file (thanks @ian-p-cooke!)
-* Add a new `Packet` constructor that uses a pre-allocated buffer
-* Add src/dst IP address setters in IPv6 layer (thanks @jafar75!)
-* Add [`musl`](https://en.wikipedia.org/wiki/Musl) support (thanks @adubovikov!)
-* Support loopback interface in `PfRingDeviceList`
-* Modernize PcapPlusPlus examples and tutorials
-* Add IPv6 support in DNS Spoofing example 
-* Convert `TLVRecord` to a templated class that can represent records with any type and length size
-* Convert PPPoE tags to use the TLV infrastructure
-* Modernize PcapPlusPlus test infrastructure:
-  * Simplify `string` and `object` asserts
-  * Replace `printf` with `std::cout`
-* Refactor and modernize PcapPlusPlus logger 
-* Implement `VlanLayet::computeCalculateFields()` to calculate the next EtherType
-* Parse the 802.1ad QinQ EtherType as `VlanLayer`
-* Replace c-style string copy (`sprintf`) with cpp-style string copy using `sstreams`
-* Tons of bug fixes (thanks @clementperon, @slhck, @bbenne10!)
+ - DPDK 20.11 support
+ - Support `uio_pci_generic` and `vfio-pci` kernel modules in DPDK setup script
+ - Add the stream operator `<<` to IP address and MAC address classes 
+ - Add the stream operator `<<` to `Packet` and `Layer`  
+ - Add DHCPv6 protocol support
+ - Get the full timestamp resolution from a standard pcap file (thanks @ian-p-cooke!)
+ - Add a new `Packet` constructor that uses a pre-allocated buffer
+ - Add src/dst IP address setters in IPv6 layer (thanks @jafar75!)
+ - Add [`musl`](https://en.wikipedia.org/wiki/Musl) support (thanks @adubovikov!)
+ - Support loopback interface in `PfRingDeviceList`
+ - Modernize PcapPlusPlus examples and tutorials
+ - Add IPv6 support in DNS Spoofing example 
+ - Convert `TLVRecord` to a templated class that can represent records with any type and length size
+ - Convert PPPoE tags to use the TLV infrastructure
+ - Modernize PcapPlusPlus test infrastructure:
+    - Simplify `string` and `object` asserts
+    - Replace `printf` with `std::cout`
+ - Refactor and modernize PcapPlusPlus logger 
+ - Implement `VlanLayet::computeCalculateFields()` to calculate the next EtherType
+ - Parse the 802.1ad QinQ EtherType as `VlanLayer`
+ - Replace c-style string copy (`sprintf`) with cpp-style string copy using `sstreams`
+ - Tons of bug fixes (thanks @clementperon, @slhck, @bbenne10!)
 
 Full Changelog: https://github.com/seladb/PcapPlusPlus/compare/v21.05...v21.11
 
@@ -32,9 +32,9 @@ Contributors
 
 Big thank you for everyone who contributed to this release:
 
-* @clementperon
-* @jafar75 
-* @slhck 
-* @adubovikov 
-* @ian-p-cooke
-* @bbenne10 
+ - @clementperon
+ - @jafar75 
+ - @slhck 
+ - @adubovikov 
+ - @ian-p-cooke
+ - @bbenne10 
