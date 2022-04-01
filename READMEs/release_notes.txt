@@ -1,40 +1,43 @@
-Release notes (changes from v21.05)
+Release notes (changes from v21.11)
 -----------------------------------
 
- - DPDK 20.11 support
- - Support `uio_pci_generic` and `vfio-pci` kernel modules in DPDK setup script
- - Add the stream operator `<<` to IP address and MAC address classes 
- - Add the stream operator `<<` to `Packet` and `Layer`  
- - Add DHCPv6 protocol support
- - Get the full timestamp resolution from a standard pcap file (thanks @ian-p-cooke!)
- - Add a new `Packet` constructor that uses a pre-allocated buffer
- - Add src/dst IP address setters in IPv6 layer (thanks @jafar75!)
- - Add [`musl`](https://en.wikipedia.org/wiki/Musl) support (thanks @adubovikov!)
- - Support loopback interface in `PfRingDeviceList`
- - Modernize PcapPlusPlus examples and tutorials
- - Add IPv6 support in DNS Spoofing example 
- - Convert `TLVRecord` to a templated class that can represent records with any type and length size
- - Convert PPPoE tags to use the TLV infrastructure
- - Modernize PcapPlusPlus test infrastructure:
-    - Simplify `string` and `object` asserts
-    - Replace `printf` with `std::cout`
- - Refactor and modernize PcapPlusPlus logger 
- - Implement `VlanLayet::computeCalculateFields()` to calculate the next EtherType
- - Parse the 802.1ad QinQ EtherType as `VlanLayer`
- - Replace c-style string copy (`sprintf`) with cpp-style string copy using `sstreams`
- - Tons of bug fixes (thanks @clementperon, @slhck, @bbenne10!)
+ - NTP protocol support (thanks @egecetin !)
+ - Support build for Android on macOS (thanks @leleliu008!)
+ - Clone live devices and live devices list (thanks @egecetin !)
+ - Add support for reading SNOOP capture files (thanks @miketruman!) 
+ - Add an option to supply additional arguments when calling `initDpdk()` (thanks @egecetin!)
+ - Detect DPDK installed via `pkg-config` during PcapPlusPlus configuration (thanks @szokovacs!)
+ - Try `modprobe` if `insmod` fails in DPDK setup script (thanks @szokovacs!)
+ - Support parsing of IPv6 over IPv4 (thanks @egecetin!)
+ - TCP reassembly improvmements:
+    - Update timestamp of last packet seen in connection info (thanks @leoparente!)
+    - Add the timestamp of the received packet in the message callback (thanks @HrshWardhan!)
+    - Add config parameter to disable OOO buffer cleanup (thanks @HrshWardhan!)
+ - Internal changes:
+   - Massive revamp of PcapPlusPlus CI pipeline (thanks @clementperon!)
+   - Add Alpine to PcapPlusPlus CI (thanks @clementperon!)
+   - Run live network tests in CI
+   - Use standard compiler macros to detect which platform PcapPlusPlus is running on (thanks @clementperon!)
+   - Add pre-commit hooks to detect spelling mistakes, trailing spaces, wrong end-of-file, and more (thanks @egecetin!)
+   - Run Black formatter on all Python files
+ - Tons of bug fixes and minor improvements (thanks @catenacyber, @matez0, @dehmarc, @clementperon, @szokovacs, @ceggers-arri, @guebe!)
 
-Full Changelog: https://github.com/seladb/PcapPlusPlus/compare/v21.05...v21.11
-
-
+Collaborators
+-------------
+ - @clementperon
+ - @egecetin
+ 
 Contributors
 ------------
+ - @catenacyber
+ - @matez0
+ - @dehmarc
+ - @szokovacs
+ - @ceggers-arri
+ - @leleliu008
+ - @guebe
+ - @HrshWardhan
+ - @leoparente
+ - @miketruman
 
-Big thank you for everyone who contributed to this release:
-
- - @clementperon
- - @jafar75 
- - @slhck 
- - @adubovikov 
- - @ian-p-cooke
- - @bbenne10 
+**Full Changelog**: https://github.com/seladb/PcapPlusPlus/compare/v21.11...v22.04
