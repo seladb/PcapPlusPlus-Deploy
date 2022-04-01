@@ -13,12 +13,15 @@ task:
         TEST_FLAGS: -s
       - IMAGE_NAME: fedora34
         OS_VER: fedora-34
+      - IMAGE_NAME: alpine315
+        OS_VER: alpine-3.15
+        CONFIG_FLAGS: --musl
   container:
     image: seladb/${IMAGE_NAME}:latest
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   configure_script:
     - cd PcapPlusPlus
-    - ./configure-linux.sh --default
+    - ./configure-linux.sh --default ${CONFIG_FLAGS}
   build_script: 
     - cd PcapPlusPlus
     - make all
