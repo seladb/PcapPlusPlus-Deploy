@@ -120,14 +120,12 @@ task:
       - IMAGE_NAME: monterey-xcode
       - IMAGE_NAME: big-sur-xcode
       - IMAGE_NAME: catalina-xcode
-      - IMAGE_NAME: monterey-xcode
-        ARM64: --arm64
   osx_instance:
     image: ${IMAGE_NAME}
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   configure_script:
     - cd PcapPlusPlus
-    - ./configure-mac_os_x.sh ${ARM64}
+    - ./configure-mac_os_x.sh
   build_script: 
     - cd PcapPlusPlus
     - make all
@@ -135,6 +133,22 @@ task:
     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
     - cd ../Pcap++Test && Bin/Pcap++Test -n
   package_script:
-    - linux-unix/deploy-mac.sh ${ARM64}
+    - linux-unix/deploy-mac.sh
+  deploy_package_artifacts:
+    path: "package/*"
+
+task:
+  name: package-macos-arm64
+  osx_instance:
+    image: monterey-xcode
+  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+  configure_script:
+    - cd PcapPlusPlus
+    - ./configure-mac_os_x.sh --arm64
+  build_script: 
+    - cd PcapPlusPlus
+    - make all
+  package_script:
+    - linux-unix/deploy-mac.sh --arm64
   deploy_package_artifacts:
     path: "package/*"
