@@ -39,4 +39,4 @@ printf "\necho Uninstallation complete! " | tee -a PcapPlusPlus/$DIST_DIR_NAME/u
 # package everything
 mkdir package
 cd PcapPlusPlus
-tar -zcvf $DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
+tar -zcvf ../package/$DIST_DIR_NAME.tar.gz $DIST_DIR_NAME/
