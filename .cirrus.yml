@@ -1,116 +1,140 @@
+# task:
+#   name: package-linux
+#   env:
+#     matrix:
+#       - IMAGE_NAME: ubuntu1604
+#         OS_VER: ubuntu-16.04
+#       - IMAGE_NAME: ubuntu1804
+#         OS_VER: ubuntu-18.04
+#       - IMAGE_NAME: ubuntu2004
+#         OS_VER: ubuntu-20.04
+#       - IMAGE_NAME: centos7
+#         OS_VER: centos-7
+#         TEST_FLAGS: -s
+#       - IMAGE_NAME: fedora34
+#         OS_VER: fedora-34
+#       - IMAGE_NAME: alpine315
+#         OS_VER: alpine-3.15
+#         CONFIG_FLAGS: --musl
+#   container:
+#     image: seladb/${IMAGE_NAME}:latest
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   configure_script:
+#     - cd PcapPlusPlus
+#     - ./configure-linux.sh --default ${CONFIG_FLAGS}
+#   build_script: 
+#     - cd PcapPlusPlus
+#     - make all
+#   test_script:
+#     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test ${TEST_FLAGS}
+#     - cd ../Pcap++Test && Bin/Pcap++Test -n ${TEST_FLAGS}
+#   package_script:
+#     - linux-unix/deploy-linux.sh
+#   deploy_package_artifacts:
+#     path: "package/*"
+
+# task:
+#   name: package-source
+#   container:
+#     image: seladb/ubuntu1804:latest  
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   install_script:
+#     - apt-get -y install rsync
+#   package_script:
+#     - source-linux/deploy-source.sh
+#   deploy_package_artifacts:
+#     path: "package/*"
+
+# task:
+#   name: package-freebsd
+#   freebsd_instance:
+#     matrix:
+#       image_family: freebsd-11-4
+#       image_family: freebsd-12-2
+#   install_script: pkg install -y git libpcap bash gsed gmake
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   configure_script:
+#     - cd PcapPlusPlus
+#     - ./configure-freebsd.sh --default
+#   build_script:
+#     - cd PcapPlusPlus
+#     - gmake all
+#   test_script:
+#     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
+#     - cd ../Pcap++Test && Bin/Pcap++Test -n
+#   package_script:
+#     - linux-unix/deploy-freebsd.sh
+#   deploy_package_artifacts:
+#     path: "package/*"
+    
+# task:
+#   name: build-android
+#   env:
+#     matrix:
+#       - TARGET: arm64-v8a
+#         API: 30
+#       - TARGET: armeabi-v7a
+#         API: 30
+#       - TARGET: x86
+#         API: 30
+#       - TARGET: x86_64
+#         API: 30
+#   container:
+#     image: cirrusci/android-sdk:30-ndk
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   get_libpcap_script: git clone https://github.com/seladb/libpcap-android.git
+#   configure_script:
+#     - LIBPCAP_PATH=$(pwd)/libpcap-android
+#     - cd PcapPlusPlus
+#     - ./configure-android.sh --ndk-path /opt/android-sdk-linux/ndk/${ANDROID_NDK_VERSION} --target ${TARGET} --api ${API} --libpcap-include-dir $LIBPCAP_PATH/include --libpcap-lib-dir $LIBPCAP_PATH/${TARGET}/${API}/
+#   build_script:
+#     - cd PcapPlusPlus
+#     - make libs
+#   package_script:
+#       - mkdir -p package/${TARGET}/${API}
+#       - cp PcapPlusPlus/Dist/lib*.a package/${TARGET}/${API}
+#   temp_package_artifacts:
+#     path: "package/**"
+
+# task:
+#   name: android-deploy
+#   depends_on: build-android
+#   container:
+#     image: seladb/ubuntu2004:latest
+#   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
+#   configure_script:
+#     - cd PcapPlusPlus
+#     - ./configure-linux.sh --default
+#   build_script:
+#     - cd PcapPlusPlus
+#     - make libs
+#   package_script:
+#     android/deploy-android.sh
+#   package_android_artifacts:
+#     path: "final_package/*"
+
 task:
-  name: package-linux
+  name: package-macos
   env:
     matrix:
-      - IMAGE_NAME: ubuntu1604
-        OS_VER: ubuntu-16.04
-      - IMAGE_NAME: ubuntu1804
-        OS_VER: ubuntu-18.04
-      - IMAGE_NAME: ubuntu2004
-        OS_VER: ubuntu-20.04
-      - IMAGE_NAME: centos7
-        OS_VER: centos-7
-        TEST_FLAGS: -s
-      - IMAGE_NAME: fedora34
-        OS_VER: fedora-34
-      - IMAGE_NAME: alpine315
-        OS_VER: alpine-3.15
-        CONFIG_FLAGS: --musl
-  container:
-    image: seladb/${IMAGE_NAME}:latest
+      - IMAGE_NAME: monterey-xcode
+      - IMAGE_NAME: big-sur-xcode
+      - IMAGE_NAME: catalina-xcode
+      - IMAGE_NAME: monterey-xcode
+        ARM64: --arm64
+  osx_instance:
+    image: ${IMAGE_NAME}
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   configure_script:
     - cd PcapPlusPlus
-    - ./configure-linux.sh --default ${CONFIG_FLAGS}
+    - ./configure-mac_os_x.sh ${ARM64}
   build_script: 
     - cd PcapPlusPlus
     - make all
   test_script:
-    - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test ${TEST_FLAGS}
-    - cd ../Pcap++Test && Bin/Pcap++Test -n ${TEST_FLAGS}
-  package_script:
-    - linux-unix/deploy-linux.sh
-  deploy_package_artifacts:
-    path: "package/*"
-
-task:
-  name: package-source
-  container:
-    image: seladb/ubuntu1804:latest  
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  install_script:
-    - apt-get -y install rsync
-  package_script:
-    - source-linux/deploy-source.sh
-  deploy_package_artifacts:
-    path: "package/*"
-
-task:
-  name: package-freebsd
-  freebsd_instance:
-    matrix:
-      image_family: freebsd-11-4
-      image_family: freebsd-12-2
-  install_script: pkg install -y git libpcap bash gsed gmake
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  configure_script:
-    - cd PcapPlusPlus
-    - ./configure-freebsd.sh --default
-  build_script:
-    - cd PcapPlusPlus
-    - gmake all
-  test_script:
     - cd PcapPlusPlus/Tests/Packet++Test && Bin/Packet++Test
     - cd ../Pcap++Test && Bin/Pcap++Test -n
   package_script:
-    - linux-unix/deploy-freebsd.sh
+    - linux-unix/deploy-mac.sh ${ARM64}
   deploy_package_artifacts:
     path: "package/*"
-    
-task:
-  name: build-android
-  env:
-    matrix:
-      - TARGET: arm64-v8a
-        API: 30
-      - TARGET: armeabi-v7a
-        API: 30
-      - TARGET: x86
-        API: 30
-      - TARGET: x86_64
-        API: 30
-  container:
-    image: cirrusci/android-sdk:30-ndk
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  get_libpcap_script: git clone https://github.com/seladb/libpcap-android.git
-  configure_script:
-    - LIBPCAP_PATH=$(pwd)/libpcap-android
-    - cd PcapPlusPlus
-    - ./configure-android.sh --ndk-path /opt/android-sdk-linux/ndk/${ANDROID_NDK_VERSION} --target ${TARGET} --api ${API} --libpcap-include-dir $LIBPCAP_PATH/include --libpcap-lib-dir $LIBPCAP_PATH/${TARGET}/${API}/
-  build_script:
-    - cd PcapPlusPlus
-    - make libs
-  package_script:
-      - mkdir -p package/${TARGET}/${API}
-      - cp PcapPlusPlus/Dist/lib*.a package/${TARGET}/${API}
-  temp_package_artifacts:
-    path: "package/**"
-
-task:
-  name: android-deploy
-  depends_on: build-android
-  container:
-    image: seladb/ubuntu2004:latest
-  get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
-  configure_script:
-    - cd PcapPlusPlus
-    - ./configure-linux.sh --default
-  build_script:
-    - cd PcapPlusPlus
-    - make libs
-  package_script:
-    android/deploy-android.sh
-  package_android_artifacts:
-    path: "final_package/*"
-
-
