@@ -36,7 +36,7 @@ task:
 task:
   name: package-source
   container:
-    image: seladb/ubuntu1804:latest  
+    image: seladb/ubuntu2004:latest
   get_code_script: git clone https://github.com/seladb/PcapPlusPlus.git
   install_script:
     - apt-get -y install rsync
