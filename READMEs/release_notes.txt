@@ -13,6 +13,7 @@ Release notes (changes from v21.11)
     - Update timestamp of last packet seen in connection info (thanks @leoparente!)
     - Add the timestamp of the received packet in the message callback (thanks @HrshWardhan!)
     - Add config parameter to disable OOO buffer cleanup (thanks @HrshWardhan!)
+ - Remove deprecated methods in `IPv4Layer`, `IPv6Layer` and `IPcapDevice`
  - Internal changes:
    - Massive revamp of PcapPlusPlus CI pipeline (thanks @clementperon!)
    - Add Alpine to PcapPlusPlus CI (thanks @clementperon!)
