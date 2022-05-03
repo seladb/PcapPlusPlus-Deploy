@@ -33,7 +33,7 @@ install:
 
 before_build:
   - cd C:\projects
-  - git clone https://github.com/seladb/PcapPlusPlus.git
+  - git clone -b bump-v22.05 https://github.com/seladb/PcapPlusPlus.git
   - cd C:\projects\PcapPlusPlus
   - if "%compiler%"=="mingw32" configure-windows-mingw.bat mingw32 -m C:\MinGW -w C:\WpdPack
   - if "%compiler%"=="mingw-w64" configure-windows-mingw.bat mingw-w64 -m C:\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0 -w C:\WpdPack -s C:\msys64\mingw32
