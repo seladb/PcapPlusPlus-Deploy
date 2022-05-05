@@ -1,0 +1,9 @@
+# venv
+
+.venv/**
+venv/**
+
+# archive files
+
+*.tar.gz
+*.zip
