@@ -4,7 +4,6 @@
   <PropertyGroup Label="UserMacros">
     <PcapPlusPlusHome>Drive:\your\PcapPlusPlus\folder</PcapPlusPlusHome>
     <PcapSdkHome>Drive:\WpdPack\folder</PcapSdkHome>
-    <PThreadWin32Home>Drive:\pthread-win32\folder</PThreadWin32Home>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />

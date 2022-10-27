@@ -37,13 +37,11 @@ In order to compile your application with these binaries you need to:
  - Make sure you have Microsoft Visual Studio installed
  - NOTE for Visual Studio 2019: these binaries were compiled with Visual Studio 2019 version 16.11.5. Older or newer versions of Visual Studio 2019 may not link with these binaries
  - Make sure you have WinPcap or Npcap Developer's pack installed (WinPcap Dev Pack can be downloaded from https://www.winpcap.org/devel.htm, Npcap SDK can be downloaded from https://nmap.org/npcap/#download)
- - Make sure you have pthread-win32 (can be downloaded from: https://github.com/seladb/PcapPlusPlus-Deploy/raw/master/Packages/pthreads-w32-2-9-1-release.zip)
  - You need to add to your project all of the include and binary paths required for PcapPlusPlus. The best option is to copy the configuration of the ExampleProject (under `ExampleProject\` folder). Another option
    is to use the ExampleProject solution, delete all the code from it and start writing your own code
  - Before using the ExampleProject solution please make sure you update the following details in `PcapPlusPlusPropertySheet.props` file (inside `ExampleProject\` folder):
     - Set the value of the `PcapPlusPlusHome` to the folder where PcapPlusPlus binaries package is located (the one you downloaded)
     - Set the value of the `PcapSdkHome` to the folder where WinPcap/Npcap Developer's Pack is located
-    - Set the value of the `PThreadWin32Home` to the folder where pthread-win32 is located
  - Now you can load the solution and build it. You can switch between Debug/Release and x86/x64 configurations
  - If you get an error of `The Windows SDK version 8.1 is not found` follow these steps:
     - Right click on `ExampleProject` project -> Choose "Properties"
