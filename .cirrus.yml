@@ -2,12 +2,12 @@ task:
   name: package-linux
   env:
     matrix:
-      - IMAGE_NAME: ubuntu1604
-        OS_VER: ubuntu-16.04
       - IMAGE_NAME: ubuntu1804
         OS_VER: ubuntu-18.04
       - IMAGE_NAME: ubuntu2004
         OS_VER: ubuntu-20.04
+      - IMAGE_NAME: ubuntu2204
+        OS_VER: ubuntu-22.04
       - IMAGE_NAME: centos7
         OS_VER: centos-7
         TEST_FLAGS: -s
