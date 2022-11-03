@@ -1,60 +1,46 @@
-November 2022 release of PcapPlusPlus (v22.11)
+Release notes (changes from v22.05)
+-----------------------------------
 
-## This package contains
-* Binaries compiled for Ubuntu 22.04 LTS, 20.04 LTS, 18.04 LTS
-* Binaries compiled for CentOS 7
-* Binaries compiled for Fedora 34
-* Binaries compiled for Alpine 3.15.0
-* Binaries compiled for macOS 12 (Monterey), 11 (Big Sur), 10.15 (Catalina) using Xcode ranging from 12.2 to 13.3 with Intel processor
-* Binaries compiled for macOS 12 (Monterey) with Apple Silicon (M1) processor
-* Binaries compiled for Android with all 4 ABIs: `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64`
-* Binaries compiled for FreeBSD 12.3 and 13.0
-* Binaries compiled for Windows using MinGW-w64 8.1.0 (32bit)
-* Binaries compiled for Windows using Microsoft Visual Studio 2019, 2017, 2015 (32bit + 64bit, Debug + Release configurations)
-* Source code + Linux installation scripts for DPDK, PF_RING and vanilla
-* Full documentation (both PcapPlusPlus web-site and API doxygen documentation) is available here: https://pcapplusplus.github.io/docs/quickstart
-
-## Release notes (changes from v22.05)
-* PcapPlusPlus officially moved to C++11! (thanks @clementperon !)
-* Remove the `pthreads` dependency and replace it with C++11 `std::thread` (thanks @clementperon !)
-* Stop supporting MinGW32 on Windows since it doesn't support `std::thread`. MinGW-w64 and Visual Studio support remains unchanged
-* New protocols:
-  * Telnet (thanks @egecetin !)
-  * FTP (thanks @egecetin !)
-  * ICMPv6 (thanks @kolbex !)
-  * NDP (thanks @kolbex !)
-  * LLC (thanks @egecetin !)
-  * STP (thanks @egecetin !)
-  * SOME/IP (thanks @kolbex !)
-  * Wake on LAN (WoL) (thanks @egecetin !)
-* DPDK 21.11 support
-* Better support for DPDK `i40e` NICs
-* DPDK set up - add an option to get `RTE_SDK` from the command line or from an environment variable
-* Handle unilateral RST in TCP reassembly (thanks @neilstephens !)
-* Retrieve live device IPv6 address if available (thanks @jafar75 !)
-* Add `.zst` file extension support for pcapng files compressed with Zstd
-* Internal tooling:
-  * Auto pre-commit monthly update (thanks @egecetin !)
-  * Add memory sanitizer regressions check (thanks @sashashura !)
-  * Add CodeQL SAST and remove LGTM which is being deprecated (thanks @sashashura !)
-  * Support multiple packets in fuzzing tests (thanks @sashashura !)
-  * Revamped README.md (thanks @egecetin !)
-* Tons of bug fixes and minor improvements (thanks @clementperon, @egecetin, @sashashura, @szokovacs, @kayoub5, @bladchan, @npc144, @AlienX2001, @cswindle !)
+- PcapPlusPlus officially moved to C++11! (thanks @clementperon !)
+- Remove the `pthreads` dependency and replace it with C++11 `std::thread` (thanks @clementperon !)
+- Stop supporting MinGW32 on Windows since it doesn't support `std::thread`. MinGW-w64 and Visual Studio support remains unchanged
+- New protocols:
+  - Telnet (thanks @egecetin !)
+  - FTP (thanks @egecetin !)
+  - ICMPv6 (thanks @kolbex !)
+  - NDP (thanks @kolbex !)
+  - LLC (thanks @egecetin !)
+  - STP (thanks @egecetin !)
+  - SOME/IP (thanks @kolbex !)
+  - Wake on LAN (WoL) (thanks @egecetin !)
+- DPDK 21.11 support
+- Better support for DPDK `i40e` NICs
+- DPDK set up - add an option to get `RTE_SDK` from the command line or from an environment variable
+- Handle unilateral RST in TCP reassembly (thanks @neilstephens !)
+- Retrieve live device IPv6 address if available (thanks @jafar75 !)
+- Add `.zst` file extension support for pcapng files compressed with Zstd
+- Internal tooling:
+  - Auto pre-commit monthly update (thanks @egecetin !)
+  - Add memory sanitizer regressions check (thanks @sashashura !)
+  - Add CodeQL SAST and remove LGTM which is being deprecated (thanks @sashashura !)
+  - Support multiple packets in fuzzing tests (thanks @sashashura !)
+  - Revamped README.md (thanks @egecetin !)
+- Tons of bug fixes and minor improvements (thanks @clementperon, @egecetin, @sashashura, @szokovacs, @kayoub5, @bladchan, @npc144, @AlienX2001, @cswindle !)
 
 ## Collaborators
-* @clementperon
-* @egecetin
+- @clementperon
+- @egecetin
  
 ## Contributors
-* @kolbex
-* @sashashura
-* @neilstephens
-* @jafar75
-* @kayoub5
-* @szokovacs
-* @bladchan
-* @npc144
-* @AlienX2001
-* @cswindle
+- @kolbex
+- @sashashura
+- @neilstephens
+- @jafar75
+- @kayoub5
+- @szokovacs
+- @bladchan
+- @npc144
+- @AlienX2001
+- @cswindle
 
 **Full Changelog**: https://github.com/seladb/PcapPlusPlus/compare/v22.05...v22.11
