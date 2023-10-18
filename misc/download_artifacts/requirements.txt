@@ -10,5 +10,5 @@ graphql-core==3.2.1
 idna==3.3
 multidict==6.0.2
 requests==2.27.1
-urllib3==1.26.9
+urllib3==1.26.18
 yarl==1.7.2
